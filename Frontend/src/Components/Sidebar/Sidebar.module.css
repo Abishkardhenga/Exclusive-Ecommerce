@@ -1,0 +1,21 @@
+.sidebarContainer{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    width: 20%;
+    padding-left: 5rem;
+    padding-top: 2rem;
+
+    /* justify-content: center; */
+    border-right:0.25px solid rgba(128, 128, 128, 0.575);
+}
+
+.siderbarlink{
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.siderbarlink:hover{
+    background-color: rgba(128, 128, 128, 0.412);
+}

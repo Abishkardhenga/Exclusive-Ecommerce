@@ -1,0 +1,47 @@
+.navbarContainer{
+    display: flex;
+    /* background-color: pink; */
+    border-bottom: 0.25px solid rgba(128, 128, 128, 0.453);
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.links{
+    text-decoration: none;
+    color: black;
+}
+
+.navLinks{
+    display: flex;
+    gap: 2rem;
+}
+
+.navRight{
+    display: flex;
+    gap:1.5rem;
+    align-items: center;
+}
+
+.inputWrapper{
+    display: flex;
+    align-items: center;
+gap: 1rem;
+}
+.inputBox{
+    border-radius: 6px;
+    outline: none;
+    height: 26px;
+    padding-left: 8px;
+    border: none;
+}
+
+.navIcon{
+    cursor: pointer;
+}
+
+.navLinks{
+    cursor: pointer;
+    letter-spacing: 1px;
+}
