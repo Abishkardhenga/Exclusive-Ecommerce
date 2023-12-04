@@ -1,0 +1,67 @@
+/* Loginbox.module.css */
+
+.loginboxContainer {
+    width: 36%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .inputWrapper {
+    margin-bottom: 20px;
+  }
+  
+  .inputBox {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  .bottom{
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btnWrapper {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .googleSignupBtn {
+    background-color: #e74c3c;
+    margin-top: 10px;
+  }
+  
+  .loginText {
+    color: #888;
+    margin-bottom: 10px;
+  }
+  
+  .loginLink {
+    color: #3498db;
+    cursor: pointer;
+  }
+  

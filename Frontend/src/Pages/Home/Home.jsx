@@ -13,7 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     GetAllProduct();
-  }, [ProductCollection]);
+  }, []);
   let GetAllProduct = async () => {
     try {
       const { data, status } = await axios.get(api);
