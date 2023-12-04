@@ -2,13 +2,12 @@ const owner = require("../Models/Owner");
 const LoginHandler = async (req, res) => {
   const { email, password } = req.body;
 
+  const data = await owner.findOne({ email });
   try {
-    const data = owner.find({ email });
-
     if (!data) {
       res.status(404).json({ message: "No data found ", success: false });
     }
-    if (!email && !password) {
+    if (!email || !password) {
       res
         .status(403)
         .json({ message: " Enter all the fields", success: false });
