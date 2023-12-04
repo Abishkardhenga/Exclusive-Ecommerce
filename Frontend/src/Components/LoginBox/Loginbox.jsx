@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Loginbox.module.css";
+import axios from "axios";
 
 const Loginbox = () => {
+  let [email, setEmail] = useState("");
+  let [password, setPassword] = useState("");
+  let api = "http://localhost:8000/login";
+  let handleLogin = async () => {
+    try {
+      let { data, status } = await axios.post(api, {
+        email,
+        password,
+      });
+      if (status === 200) {
+        alert("Login successfully ");
+        setEmail("");
+        setPassword("");
+      }
+      console.log("this is data", data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className={styles.loginContainer}>
       <div>
@@ -13,15 +33,30 @@ const Loginbox = () => {
           className={styles.inputBox}
           placeholder="Enter Email"
           type="text"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
         />
         <input
           className={styles.inputBox}
           placeholder="Password"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
           type="password" // Use type="password" for password fields
         />
       </div>
       <div className={styles.btnWrapper}>
-        <button className={styles.loginBtn}>Login</button>
+        <button
+          onClick={() => {
+            handleLogin();
+          }}
+          className={styles.loginBtn}
+        >
+          Login
+        </button>
         <button className={styles.forgotPasswordBtn}>Forgot Password?</button>
       </div>
     </div>
