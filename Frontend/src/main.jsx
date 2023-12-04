@@ -1,13 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom"; // Import react-dom directly
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
+import { UserContexProvider } from "./utilis/UseContext/UseContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <BrowserRouter>
+  <BrowserRouter>
+    <UserContexProvider>
       <App />
-    </BrowserRouter>
-  </React.StrictMode>
+    </UserContexProvider>
+  </BrowserRouter>
 );

@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Signupbox.module.css";
 import axios from "axios";
+// import { UseContext } from "../../utilis/UseContext/UseContext";
 
 const Signupbox = () => {
   let [username, setUsername] = useState();
   let [email, setEmail] = useState();
   let [password, setPassword] = useState();
   let api = "http://localhost:8000/register";
+  // let { state, dispatch } = useContext(UseContext);
   let handleRegister = async () => {
     try {
       let { data, status } = await axios.post(api, {
@@ -18,6 +20,9 @@ const Signupbox = () => {
         setEmail("");
         setPassword("");
         setUsername("");
+        // dispatch({ type: "setUserdata", payload: data });
+
+        console.log("this is data", state);
         alert("successfully registered");
       }
       console.log("this is data", data);
