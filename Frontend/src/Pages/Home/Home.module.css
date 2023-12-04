@@ -1,9 +1,10 @@
 .homeContainer{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: auto;
     width: 100%;
-    max-height: auto;
+    min-height: 100vh;
+    /* background-color: red; */
     background-color: rgb(227,228,234);
 }
 .siderbarWrapper{
@@ -14,4 +15,28 @@
 
 .bannerImgWrapper{
     padding-top: 2rem;
+}
+.body{
+    padding-left: 5rem;
+    width: 100%;
+    padding-top: 1rem;
+    /* background-color: red; */
+
+
+}
+
+.flashsaleComponent{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+.countdown{
+    display: flex;
+    gap: 1rem;
+}
+.productCardContainer{
+    display: flex;
+    gap: 2rem;
+flex-wrap: wrap;
+    width: 100%;
 }

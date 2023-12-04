@@ -1,0 +1,38 @@
+.productContainer{
+    width: 200px;
+    height: 200px;
+    padding:0.25rem 0.5rem;
+background-color: lightgray;
+    /* border: 1px solid grey; */
+}
+
+.productImg{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.imgWrapper{
+    height: 50%;
+    width: 100%;
+}
+.bookmarkIcon, .cartIcon{
+    cursor: pointer;
+}
+.iconsWrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.name{
+    /* background-color: red; */
+    height: 40px;
+
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+.price{
+    color:rgb(219,68,68);
+    font-weight: bold;
+}

@@ -15,12 +15,21 @@
     justify-content: space-around;
   }
   
+  .firstPart, .secondPart , .thirdPart {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .fifthLinks{
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
   /* Each Section */
-  .firstPart,
-  .secondPart,
-  .thirdPart,
-  .quickLinks,
-  .fifthLinks {
+  .firstPart p,
+  .secondPart p,
+  .thirdPart p,
+  .fifthLinks p {
     font-size: 12px;
     display: flex;
     flex-direction: column;

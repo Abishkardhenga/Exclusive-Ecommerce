@@ -6,8 +6,7 @@ dotenv.config();
 const db = require("./utilis/db");
 app.use(express.json());
 db();
-app.use(require("./Routes/AuthRoutes"));
-app.use(require("./Routes/ProductRoutes"));
+
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -15,6 +14,8 @@ app.use(
     credentials: true,
   })
 );
+app.use(require("./Routes/AuthRoutes"));
+app.use(require("./Routes/ProductRoutes"));
 app.listen(8000, () => {
   console.log("port started at 8000");
 });
