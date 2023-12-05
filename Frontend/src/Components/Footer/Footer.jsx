@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./Footer.module.css";
-import { FaRegCopyright } from "react-icons/fa6";
 import { IoSend } from "react-icons/io5";
 import Qr from "../../../public/img/Qr.png";
 import google from "../../../public/img/google.png";
 import appstore from "../../../public/img/appstore.png";
+import { FaRegCopyright } from "react-icons/fa";
+
 import { FaFacebookF } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa6";
 
@@ -68,8 +69,9 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.footlowerPart}>
-        <FaRegCopyright />
-        <p>Copyright Rimel 2022. All right reserved</p>
+        <FaRegCopyright className={styles.copyrightIcon} />
+
+        <p className={styles.copyrightDisclaimer}>Copyright</p>
       </div>
     </div>
   );
