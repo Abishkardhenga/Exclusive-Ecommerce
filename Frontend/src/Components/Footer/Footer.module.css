@@ -126,10 +126,12 @@ justify-content: center;
 
   
   .copyrightIcon{
-    background-color: blue;
 
+    height: 23px;
+    width: 23px;
   }
   .copyrightDisclaimer{
+    color: grey;
 
-    background-color: blue;
+    /* background-color: blue; */
   }
