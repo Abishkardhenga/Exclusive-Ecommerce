@@ -5,8 +5,8 @@
     width: 20%;
     padding-left: 5rem;
     padding-top: 2rem;
+    height: 380px;
 
-    /* justify-content: center; */
     border-right:0.25px solid rgba(128, 128, 128, 0.575);
 }
 

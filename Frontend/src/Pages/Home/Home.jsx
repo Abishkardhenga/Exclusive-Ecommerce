@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "./Home.module.css";
 import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
@@ -6,19 +6,23 @@ import img from "../../../public/img/banner.png";
 import ProductCard from "../../Components/ProductCard/ProductCard";
 import Footer from "../../Components/Footer/Footer";
 import axios from "axios";
+import { UserInfo } from "../../utilis/UseContext/UseContext";
 
 let api = "http://localhost:8000/getproduct";
 const Home = () => {
   let [ProductCollection, SetProductCollection] = useState([]);
+  let { state, dispatch } = useContext(UserInfo);
 
   useEffect(() => {
+    dispatch({ type: "setUserdata", payload: { username: "hi hero" } });
+    console.log("this is state", state);
     GetAllProduct();
   }, []);
+
   let GetAllProduct = async () => {
     try {
       const { data, status } = await axios.get(api);
       console.log("this is data", data);
-      console.log("this is data message", data.message);
       SetProductCollection(data.message);
     } catch (err) {
       console.log("this is err", err);

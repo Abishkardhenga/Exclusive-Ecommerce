@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Signupbox.module.css";
 import axios from "axios";
+import { useContext } from "react";
+import { UserInfo } from "../../utilis/UseContext/UseContext";
 
 const Signupbox = () => {
   let [username, setUsername] = useState();
   let [email, setEmail] = useState();
   let [password, setPassword] = useState();
   let api = "http://localhost:8000/register";
+  let { state, dispatch } = useContext(UserInfo);
   let handleRegister = async () => {
     try {
       let { data, status } = await axios.post(api, {
@@ -19,7 +22,6 @@ const Signupbox = () => {
         setPassword("");
         setUsername("");
 
-        console.log("this is data", state);
         alert("successfully registered");
       }
       console.log("this is data", data);
@@ -27,6 +29,7 @@ const Signupbox = () => {
       console.log(err);
     }
   };
+
   return (
     <div className={styles.loginboxContainer}>
       <div>
