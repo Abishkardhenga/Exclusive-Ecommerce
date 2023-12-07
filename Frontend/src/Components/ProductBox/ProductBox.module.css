@@ -1,0 +1,64 @@
+.productBoxContainer{
+    display: flex;
+    background-color: rgb(229,230,235);
+    width: 70%;
+}
+
+.productImg{
+    width: 90%;
+    object-fit: cover;
+    height: 90%;
+}
+.imgWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.productDetail{
+    display: flex;
+    flex-direction: column;
+    padding:2rem 1rem;
+    /* background-color: red; */
+    gap: 3rem;
+}
+
+.btnWrapper{
+    display: flex;
+    gap: 2rem;
+}
+.addBtn{
+    background-color: black;
+    width: 60px;
+    cursor: pointer;
+    
+}
+.subtractBtn{
+    cursor: pointer;
+    background-color: black;
+    width: 60px;
+    
+}
+
+.buyBtn{
+    cursor: pointer;
+
+    width: 150px;
+    font-size: 12px;
+    letter-spacing: 1px;}
+.cartBtn{
+    background-color:orange;
+    width: 150px;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.QuantityDetailWrapper{
+    display: flex;
+    gap: 4rem;
+}
+.Wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}

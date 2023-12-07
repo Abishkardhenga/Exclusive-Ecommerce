@@ -8,7 +8,9 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className={styles.navbarContainer}>
-      <h1>Exclusive</h1>
+      <Link className={styles.links} to="/">
+        <h1>Exclusive</h1>
+      </Link>
       <div className={styles.navLinks}>
         <Link to="/" className={styles.links}>
           <p className={styles.navItem}>Home</p>

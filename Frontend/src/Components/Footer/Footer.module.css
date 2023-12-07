@@ -3,7 +3,7 @@
     color: #fff;
     padding-top: 12px;
     box-sizing: border-box  ;
-    height: 340px;
+    height: 310px;
 width: 100%;
     display: flex;
     flex-direction: column;
@@ -20,7 +20,15 @@ width: 100%;
   .firstPart, .secondPart , .thirdPart {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap:1rem;
+  }
+
+  .firstPart p , .secondPart p , .thirdPart p {
+    color: grey;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 1px;
   }
   .fifthLinks{
     display: flex;
@@ -28,28 +36,23 @@ width: 100%;
     gap: 0.5rem;
   }
   /* Each Section */
-  .firstPart p,
-  .secondPart p,
-  .thirdPart p,
-  .fifthLinks p {
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    letter-spacing: 1px;
-  }
-  
+
   /* Headings */
+  .footerlink{
+    text-decoration: none;
+  }
 
     .quickLinks p{
         font-size: 12px;
         font-weight: bold;
         cursor: pointer;
+        color: grey;
         letter-spacing: 1px;
     }
     .quickLinks{
         display: flex;
         flex-direction: column;
-        gap: 0.24rem;
+        gap: 1rem;
     }
   
   /* Input Wrapper */
@@ -114,7 +117,7 @@ gap: 1rem;
   .footlowerPart{
     display: flex;
     width: 100%;
-    background-color: red;
+    /* background-color: red; */
     align-items: center;
     height: 20%;
 justify-content: center;
@@ -127,8 +130,8 @@ justify-content: center;
   
   .copyrightIcon{
 
-    height: 23px;
-    width: 23px;
+    height: 15px;
+    width: 15px;
   }
   .copyrightDisclaimer{
     color: grey;

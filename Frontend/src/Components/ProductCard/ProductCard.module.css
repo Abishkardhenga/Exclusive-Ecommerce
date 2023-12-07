@@ -3,7 +3,8 @@
     height: 200px;
     padding:0.25rem 0.5rem;
 background-color: lightgray;
-    /* border: 1px solid grey; */
+cursor: pointer;
+text-decoration: none;
 }
 
 .productImg{

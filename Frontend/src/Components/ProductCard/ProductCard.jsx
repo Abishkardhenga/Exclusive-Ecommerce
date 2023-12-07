@@ -2,10 +2,15 @@ import React from "react";
 import styles from "./ProductCard.module.css";
 import { IoBookmarkOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ item }) => {
   return (
-    <div className={styles.productContainer}>
+    <Link
+      to={"/product"}
+      state={{ item: item }}
+      className={styles.productContainer}
+    >
       <div className={styles.imgWrapper}>
         <img src={item.image} className={styles.productImg} alt="watch img" />
       </div>
@@ -17,7 +22,7 @@ const ProductCard = ({ item }) => {
         <IoBookmarkOutline className={styles.bookmarkIcon} />
         <IoCartOutline className={styles.cartIcon} />
       </div>
-    </div>
+    </Link>
   );
 };
 

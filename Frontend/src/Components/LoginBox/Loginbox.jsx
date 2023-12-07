@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import styles from "./Loginbox.module.css";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const Loginbox = () => {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
+  let { state } = useLocation();
+  console.log("this is state", state);
   let api = "http://localhost:8000/login";
   let handleLogin = async () => {
     try {

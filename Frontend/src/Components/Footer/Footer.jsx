@@ -5,7 +5,7 @@ import Qr from "../../../public/img/Qr.png";
 import google from "../../../public/img/google.png";
 import appstore from "../../../public/img/appstore.png";
 import { FaRegCopyright } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa6";
 
@@ -38,8 +38,12 @@ const Footer = () => {
         <div className={styles.thirdPart}>
           <h3>Account</h3>
           <p>My Account</p>
-          <p>Login</p>
-          <p>Register</p>
+          <Link className={styles.footerlink} to="/login">
+            <p>Login</p>
+          </Link>
+          <Link className={styles.footerlink} to="/register">
+            <p>Register</p>
+          </Link>
           <p>Cart</p>
           <p>Wishlist</p>
         </div>
@@ -71,7 +75,9 @@ const Footer = () => {
       <div className={styles.footlowerPart}>
         <FaRegCopyright className={styles.copyrightIcon} />
 
-        <p className={styles.copyrightDisclaimer}>Copyright</p>
+        <p className={styles.copyrightDisclaimer}>
+          Copyright 2022@ by Aabiskar Dhenga
+        </p>
       </div>
     </div>
   );
