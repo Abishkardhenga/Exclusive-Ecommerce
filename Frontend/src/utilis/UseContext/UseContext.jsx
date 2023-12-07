@@ -4,12 +4,19 @@ export let UserInfo = createContext();
 
 let user = {
   userdata: null,
+  bookmarkCollection: [],
 };
 
 let reducer = (state, action) => {
   switch (action.type) {
     case "setUserdata":
       return { ...state, userdata: action.payload };
+
+    case "setBookmark":
+      return {
+        ...state,
+        bookmarkCollection: [...state.bookmarkCollection, action.payload],
+      };
 
     default:
       return state;
