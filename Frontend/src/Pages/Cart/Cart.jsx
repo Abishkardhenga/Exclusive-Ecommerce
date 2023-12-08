@@ -3,6 +3,9 @@ import styles from "./Cart.module.css";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import { UserInfo } from "../../utilis/UseContext/UseContext";
+// import CartCard from "../../Components/CartCard/CartCard";
+// import ProductCard from "../../Components/ProductCard/ProductCard";
+import ProductBox from "../../Components/ProductBox/ProductBox";
 
 const Cart = () => {
   let [cartCollection, setCartCollection] = useState([]);
@@ -13,7 +16,11 @@ const Cart = () => {
   return (
     <div className={styles.cartContainer}>
       <Navbar />
-      <div></div>
+      <div>
+        {cartCollection.map((item) => {
+          return <ProductBox item={item} />;
+        })}
+      </div>
 
       <Footer />
     </div>

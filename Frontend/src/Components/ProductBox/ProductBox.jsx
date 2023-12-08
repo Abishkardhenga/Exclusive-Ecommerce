@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import styles from "./ProductBox.module.css";
 
-const ProductBox = () => {
-  const { state } = useLocation();
+const ProductBox = ({ item }) => {
+  // const { state } = useLocation();
   let [Quantity, setQuantity] = useState(1);
   let handleIncrease = () => {
     setQuantity(Quantity + 1);
@@ -14,19 +14,15 @@ const ProductBox = () => {
     }
     setQuantity(Quantity - 1);
   };
-  console.log("prodcutBox", state);
+  // console.log("prodcutBox", state);
   return (
     <div className={styles.productBoxContainer}>
       <div className={styles.imgWrapper}>
-        <img
-          src={state?.item?.image}
-          className={styles.productImg}
-          alt="productImg"
-        />
+        <img src={item?.image} className={styles.productImg} alt="productImg" />
       </div>
       <div className={styles.productDetail}>
-        <p>{state?.item?.name}</p>
-        <p>Rs :{state?.item?.price}</p>
+        <p>{item?.name}</p>
+        <p>Rs :{item?.price}</p>
         <div className={styles.Wrapper}>
           <div className={styles.QuantityDetailWrapper}>
             <p>Quantity</p>
