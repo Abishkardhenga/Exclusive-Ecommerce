@@ -1,23 +1,28 @@
 import React, { useContext, useEffect, useState } from "react";
-import styles from "./Cart.module.css";
+import styles from "./Bookmark.module.css";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import { UserInfo } from "../../utilis/UseContext/UseContext";
+import BookmarkCartdesign from "../../Components/BookmarkCartDesign/BookmarkCartdesign";
 
-const Cart = () => {
+const Bookmark = () => {
   let [cartCollection, setCartCollection] = useState([]);
   let { dispatch, state } = useContext(UserInfo);
   useEffect(() => {
-    setCartCollection(state.cartCollection);
+    setCartCollection(state.bookmarkCollection);
   }, []);
   return (
     <div className={styles.cartContainer}>
       <Navbar />
-      <div></div>
+      <div>
+        {cartCollection.map((item) => {
+          return <BookmarkCartdesign item={item} />;
+        })}
+      </div>
 
       <Footer />
     </div>
   );
 };
 
-export default Cart;
+export default Bookmark;

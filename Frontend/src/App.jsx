@@ -4,11 +4,11 @@ import Home from "./Pages/Home/Home";
 import Aboutus from "./Pages/Aboutus/Aboutus";
 import Signup from "./Pages/Signup/Signup";
 import Login from "./Pages/Login/Login";
-import Whislist from "./Pages/Whislist/Whislist";
 import Product from "./Pages/Product/Product";
 import Contact from "./Pages/Contact/Contact";
 import Checkout from "./Pages/Checkout/Checkout";
 import Cart from "./Pages/Cart/Cart";
+import Bookmark from "./Pages/Whislist/Bookmark";
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/about" element={<Aboutus />} />
-      <Route path="/whislist" element={<Whislist />} />
+      <Route path="/bookmark" element={<Bookmark />} />
       <Route path="/product" element={<Product />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/checkout" element={<Checkout />} />

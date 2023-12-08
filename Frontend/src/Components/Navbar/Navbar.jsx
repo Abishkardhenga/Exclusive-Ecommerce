@@ -34,8 +34,12 @@ const Navbar = () => {
           />
           <IoSearch className={styles.navIcon} />
         </div>
-        <PiBookmarkSimpleDuotone className={styles.navIcon} />
-        <IoCartOutline className={styles.navIcon} />
+        <Link to="/bookmark" className={styles.links}>
+          <PiBookmarkSimpleDuotone className={styles.navIcon} />
+        </Link>
+        <Link to="/cart" className={styles.links}>
+          <IoCartOutline className={styles.navIcon} />
+        </Link>
       </div>
     </div>
   );

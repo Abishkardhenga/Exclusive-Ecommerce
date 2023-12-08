@@ -5,6 +5,7 @@ export let UserInfo = createContext();
 let user = {
   userdata: null,
   bookmarkCollection: [],
+  cartCollection: [],
 };
 
 let reducer = (state, action) => {
@@ -16,6 +17,11 @@ let reducer = (state, action) => {
       return {
         ...state,
         bookmarkCollection: [...state.bookmarkCollection, action.payload],
+      };
+    case "setCart":
+      return {
+        ...state,
+        cartCollection: [...state.cartCollection, action.payload],
       };
 
     default:

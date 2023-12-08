@@ -12,6 +12,10 @@ const ProductCard = ({ item }) => {
     alert("bookmark dabaiyo hai ");
     dispatch({ type: "setBookmark", payload: item });
   };
+  let handleCart = () => {
+    alert("cart btn dabaiyo hai ");
+    dispatch({ type: "setCart", payload: item });
+  };
 
   console.log("this is state", state);
 
@@ -35,7 +39,12 @@ const ProductCard = ({ item }) => {
           }}
           className={styles.bookmarkIcon}
         />
-        <IoCartOutline className={styles.cartIcon} />
+        <IoCartOutline
+          onClick={() => {
+            handleCart();
+          }}
+          className={styles.cartIcon}
+        />
       </div>
     </div>
   );
