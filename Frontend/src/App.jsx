@@ -11,8 +11,8 @@ import Cart from "./Pages/Cart/Cart";
 import Bookmark from "./Pages/Whislist/Bookmark";
 import Fashion from "./Pages/Category/Fashion/Fashion";
 import Electronics from "./Pages/Category/Electronics/Electronics";
-// import Toys from "./Pages/Category/Toys/Toys";
 import Health from "./Pages/Category/Health/Health";
+import Toys from "./Pages/Category/Toys/Toys";
 
 const App = () => {
   return (
@@ -28,7 +28,7 @@ const App = () => {
       <Route path="/category">
         <Route path="Fashion" element={<Fashion />} />
         <Route path="Health" element={<Health />} />
-        {/* <Route path="toys" element={<Toys/>} /> */}
+        <Route path="toys" element={<Toys />} />
         <Route path="electronics" element={<Electronics />} />
       </Route>
       <Route path="/cart" element={<Cart />} />
