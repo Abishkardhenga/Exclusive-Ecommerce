@@ -9,6 +9,7 @@ import Contact from "./Pages/Contact/Contact";
 import Checkout from "./Pages/Checkout/Checkout";
 import Cart from "./Pages/Cart/Cart";
 import Bookmark from "./Pages/Whislist/Bookmark";
+import Fashion from "./Pages/Category/Fashion/Fashion";
 
 const App = () => {
   return (
@@ -21,6 +22,9 @@ const App = () => {
       <Route path="/product" element={<Product />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="/category">
+        <Route path="Fashion" element={<Fashion />} />
+      </Route>
       <Route path="/cart" element={<Cart />} />
     </Routes>
   );
