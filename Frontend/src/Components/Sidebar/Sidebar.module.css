@@ -12,10 +12,15 @@
 
 .siderbarlink{
     letter-spacing: 1px;
+    color: black;
     cursor: pointer;
     font-size: 12px;
 }
 
 .siderbarlink:hover{
     background-color: rgba(128, 128, 128, 0.412);
+}
+
+.links{
+    text-decoration: none;
 }
