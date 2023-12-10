@@ -8,12 +8,16 @@ const Sidebar = () => {
       <Link className={styles.links} to="/category/Fashion">
         <p className={styles.siderbarlink}> Fashion</p>
       </Link>
-      <p className={styles.siderbarlink}>Electronics</p>
+      <Link to="/category/electronics" className={styles.links}>
+        <p className={styles.siderbarlink}>Electronics</p>
+      </Link>
       <p className={styles.siderbarlink}>Medicine</p>
       <Link className={styles.links} to="/category/health">
         <p className={styles.siderbarlink}>Health & Beauty</p>
       </Link>
-      <p className={styles.siderbarlink}>Groceries & Toys</p>
+      <Link className={styles.links} to="/category/toys">
+        <p className={styles.siderbarlink}>Groceries & Toys</p>
+      </Link>
     </div>
   );
 };

@@ -1,30 +1,35 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Loginbox.module.css";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
+import { UserInfo } from "../../utilis/UseContext/UseContext";
 
 const Loginbox = () => {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
-  let { state } = useLocation();
-  console.log("this is state", state);
   let api = "http://localhost:8000/login";
+  let { state, dispatch } = useContext(UserInfo);
   let handleLogin = async () => {
     try {
       let { data, status } = await axios.post(api, {
         email,
         password,
       });
+      // console.log("this is status: ", status);
       if (status === 200) {
         alert("Login successfully ");
         setEmail("");
         setPassword("");
+        // console.log("this is data", data);
+        dispatch({ type: "setUserdata", payload: data.data });
       }
       console.log("this is data", data);
     } catch (err) {
-      console.log(err);
+      console.log("err", err);
+      console.log("this is err message", err.message);
     }
   };
+
   return (
     <div className={styles.loginContainer}>
       <div>

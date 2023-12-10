@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Navbar.module.css";
 import { IoSearch } from "react-icons/io5";
 import { PiBookmarkSimpleDuotone } from "react-icons/pi";
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { UserInfo } from "../../utilis/UseContext/UseContext";
+import Dropdown from "../Dropdown/Dropdown";
 
 const Navbar = () => {
+  let { state, dispatch } = useContext(UserInfo);
+  console.log("thi is state ", state);
+
   return (
     <div className={styles.navbarContainer}>
       <Link className={styles.links} to="/">
@@ -40,6 +45,7 @@ const Navbar = () => {
         <Link to="/cart" className={styles.links}>
           <IoCartOutline className={styles.navIcon} />
         </Link>
+        {state.userdata ? <Dropdown /> : "no hey"}
       </div>
     </div>
   );
