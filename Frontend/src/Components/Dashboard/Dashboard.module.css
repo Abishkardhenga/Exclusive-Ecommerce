@@ -17,3 +17,7 @@
 .dashboardPage:hover{
     background-color: grey;
 }
+
+.links{
+    text-decoration: none;
+}

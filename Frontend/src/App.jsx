@@ -14,6 +14,8 @@ import Electronics from "./Pages/Category/Electronics/Electronics";
 import Health from "./Pages/Category/Health/Health";
 import Toys from "./Pages/Category/Toys/Toys";
 import Seller from "./Pages/Seller/Seller";
+import Addproduct from "./Pages/AddProduct/Addproduct";
+import Mystore from "./Pages/MyStore/Mystore";
 
 const App = () => {
   return (
@@ -21,7 +23,10 @@ const App = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/seller" element={<Seller />}></Route>
+      <Route path="/seller" element={<Seller />}>
+        <Route path="addproduct" element={<Addproduct />} />
+        <Route path="mystore" element={<Mystore />} />
+      </Route>
       <Route path="/about" element={<Aboutus />} />
       <Route path="/bookmark" element={<Bookmark />} />
       <Route path="/product" element={<Product />} />
