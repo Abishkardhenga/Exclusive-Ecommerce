@@ -1,9 +1,10 @@
 .container{
     display: flex;
     flex-direction: column;
-    height: 350px;
+    height: 300px;
+    padding: 1rem;
     width: 300px;
-    border: 0.5px solid black;
+    border: 0.10px solid rgba(0, 0, 0, 0.398);
 }
 
 .imgWrapper{
@@ -32,8 +33,10 @@ height: 40%;
     background-color: black;
     color: white;
     cursor: pointer;
+    width: 122px;
 }
 .deleteBtn{
+    width: 122px;
     background-color: red;
     cursor: pointer;
 }
