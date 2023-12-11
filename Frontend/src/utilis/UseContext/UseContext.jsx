@@ -7,6 +7,7 @@ let user = {
   bookmarkCollection: [],
   cartCollection: [],
   getProductFn: null,
+  editMode: false,
 };
 
 let reducer = (state, action) => {
