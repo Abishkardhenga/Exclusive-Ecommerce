@@ -6,12 +6,15 @@ let user = {
   userdata: null,
   bookmarkCollection: [],
   cartCollection: [],
+  getProductFn: null,
 };
 
 let reducer = (state, action) => {
   switch (action.type) {
     case "setUserdata":
       return { ...state, userdata: action.payload };
+    case "setGetProductFn":
+      return { ...state, getProductFn: action.payload };
 
     case "setBookmark":
       return {
