@@ -14,7 +14,6 @@ const Home = () => {
   let { state, dispatch } = useContext(UserInfo);
 
   useEffect(() => {
-    dispatch({ type: "setUserdata", payload: { username: "hi hero" } });
     console.log("this is state", state);
     GetAllProduct();
   }, []);
