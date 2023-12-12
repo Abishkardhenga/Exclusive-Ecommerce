@@ -60,6 +60,8 @@ gap: 2rem;
   }
   .links{
     text-decoration: none;
+    color: #3498db;
+    ;
   }
   
   .forgotPasswordBtn {

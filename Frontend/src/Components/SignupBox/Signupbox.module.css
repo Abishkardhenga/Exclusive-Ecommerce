@@ -21,6 +21,9 @@
     gap: 1rem;
     flex-direction: column;
   }
+  .links{
+    text-decoration: none;
+  }
   
   .inputBox {
     width: 100%;

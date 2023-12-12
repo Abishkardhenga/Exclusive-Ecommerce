@@ -23,11 +23,12 @@ const Navbar = () => {
         <Link to="/seller" className={styles.links}>
           <p className={styles.navItem}>Be Seller</p>
         </Link>
+
+        <Link to="/contact" className={styles.links}>
+          <p className={styles.navItem}>Contact</p>
+        </Link>
         <Link to="/login" className={styles.links}>
           <p className={styles.navItem}>Login</p>
-        </Link>
-        <Link to="/signup" className={styles.links}>
-          <p className={styles.navItem}>Signup</p>
         </Link>
       </div>
       <div className={styles.navRight}>

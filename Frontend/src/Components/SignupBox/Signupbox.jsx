@@ -3,6 +3,7 @@ import styles from "./Signupbox.module.css";
 import axios from "axios";
 import { useContext } from "react";
 import { UserInfo } from "../../utilis/UseContext/UseContext";
+import { Link } from "react-router-dom";
 
 const Signupbox = () => {
   let [username, setUsername] = useState();
@@ -78,7 +79,9 @@ const Signupbox = () => {
       </div>
       <div className={styles.bottom}>
         <p className={styles.loginText}>Already have an Account? </p>
-        <p className={styles.loginLink}>Login </p>
+        <Link className={styles.links} to={"/login"} className={styles.links}>
+          <p className={styles.loginLink}>Login </p>
+        </Link>
       </div>
     </div>
   );
