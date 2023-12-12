@@ -20,7 +20,7 @@ let reducer = (state, action) => {
     case "setEditingData":
       return { ...state, editingData: action.payload };
     case "setEditingmode":
-      return { ...state, editMode: true };
+      return { ...state, editMode: action.payload };
 
     case "setBookmark":
       return {

@@ -17,20 +17,19 @@ const Addproduct = () => {
 
   useEffect(() => {
     setOwner(state?.userdata?._id);
-  }, [state]);
+  }, []);
   console.log("ths is editing data", state?.editingData);
 
   useEffect(() => {
-    if (state.editMode == true) {
-      update();
-    }
-  }, [state.editMode]);
-  console.log(state.editingData);
+    // if (state.editMode == true) {
+    update();
+    // }
+  }, []);
 
   let update = () => {
     setName(state?.editingData?.name);
     setImage(state?.editingData?.image);
-    setDescription(state?.editingData?.image);
+    setDescription(state?.editingData?.description);
     setPrice(state?.editingData?.price);
     setCategory(state?.editingData?.category);
   };
@@ -38,15 +37,39 @@ const Addproduct = () => {
   let updateProduct = async () => {
     try {
       const { data, status } = await axios.patch(
-        `${EditApi}/${state?.editingData?._id}`
+        `${EditApi}/${state?.editingData?._id}`,
+        {
+          name,
+          image,
+          description,
+          price,
+          category,
+          owner,
+        }
       );
+      state.getProductFn();
+      dispatch({ type: "setEditingData", payload: null });
+      dispatch({ type: "setEditingmode", payload: false });
     } catch (err) {
       console.log(err);
     }
   };
 
+  console.log(state.editingData);
   let handleAdd = async () => {
     try {
+      if (state.editMode == true) {
+        alert("working on update");
+        updateProduct();
+        setName("");
+        setImage("");
+        setDescription("");
+        setPrice("");
+        setCategory("");
+
+        return;
+      }
+
       const { data, status } = await axios.post(api, {
         name,
         image,
@@ -56,20 +79,6 @@ const Addproduct = () => {
         owner,
       });
 
-      if (state.editMode == true) {
-        alert("working on update");
-        updateProduct();
-        setName("");
-        setImage("");
-        setDescription("");
-        setPrice("");
-        setCategory("");
-        alert("successfully updated product");
-        dispatch({ type: "setEditingmode", editMode: false });
-        state.getProductFn();
-
-        return;
-      }
       if (status == 200) {
         setName("");
         setImage("");
