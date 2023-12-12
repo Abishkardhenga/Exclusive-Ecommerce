@@ -13,9 +13,37 @@ const Addproduct = () => {
   let [price, setPrice] = useState();
   let [category, setCategory] = useState();
   let [owner, setOwner] = useState();
+  let EditApi = "http://localhost:8000/editproduct";
+
   useEffect(() => {
     setOwner(state?.userdata?._id);
   }, [state]);
+  console.log("ths is editing data", state?.editingData);
+
+  useEffect(() => {
+    if (state.editMode == true) {
+      update();
+    }
+  }, [state.editMode]);
+  console.log(state.editingData);
+
+  let update = () => {
+    setName(state?.editingData?.name);
+    setImage(state?.editingData?.image);
+    setDescription(state?.editingData?.image);
+    setPrice(state?.editingData?.price);
+    setCategory(state?.editingData?.category);
+  };
+
+  let updateProduct = async () => {
+    try {
+      const { data, status } = await axios.patch(
+        `${EditApi}/${state?.editingData?._id}`
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   let handleAdd = async () => {
     try {
@@ -27,6 +55,21 @@ const Addproduct = () => {
         category,
         owner,
       });
+
+      if (state.editMode == true) {
+        alert("working on update");
+        updateProduct();
+        setName("");
+        setImage("");
+        setDescription("");
+        setPrice("");
+        setCategory("");
+        alert("successfully updated product");
+        dispatch({ type: "setEditingmode", editMode: false });
+        state.getProductFn();
+
+        return;
+      }
       if (status == 200) {
         setName("");
         setImage("");
@@ -34,6 +77,7 @@ const Addproduct = () => {
         setPrice("");
         setCategory("");
         alert("successfully added product");
+        state.getProductFn();
       }
     } catch (err) {
       console.log(err);
@@ -118,7 +162,7 @@ const Addproduct = () => {
             }}
             className={styles.addBtn}
           >
-            Add
+            {state.editMode == true ? "Update" : "Add"}
           </button>
         </div>
       </div>

@@ -2,29 +2,30 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "./Storecard.module.css";
 import axios from "axios";
 import { UserInfo } from "../../utilis/UseContext/UseContext";
+import { Link } from "react-router-dom";
 
 const Storecard = ({ item }) => {
   let { state, dispatch } = useContext(UserInfo);
   let deleteapi = "http://localhost:8000/deleteproduct";
 
   let handleDelete = async (item) => {
-    console.log("this is item", item);
-    console.log("this is item", item._id);
-
     try {
       const { data, status } = await axios.delete(`${deleteapi}/${item?._id}`);
       if (status == 200) {
         alert("successfully deleted");
+        state.getProductFn();
       }
     } catch (err) {
       console.log(err);
     }
   };
 
-  let EditApi = "http://localhost:8000/editproduct";
-  let handleEdit = async (item) => {
+  let handleEdit = (item) => {
+    console.log("item");
     try {
-      const { data, status } = await axios.patch(`${EditApi}/${item._id}`);
+      dispatch({ type: "setEditingmode", payload: true });
+
+      dispatch({ type: "setEditingData", payload: item });
     } catch (err) {
       console.log(err);
     }
@@ -39,15 +40,16 @@ const Storecard = ({ item }) => {
         <p className={styles.desc}>{item?.description}</p>
         <p className={styles.price}>Rs: {item?.price}</p>
         <div className={styles.btnWrapper}>
-          <button
-            onClick={() => {
-              handleEdit(item);
-            }}
-            className={styles.editBtn}
-          >
-            edit
-          </button>
-
+          <Link className={styles.link} to="/seller/addproduct">
+            <button
+              onClick={() => {
+                handleEdit(item);
+              }}
+              className={styles.editBtn}
+            >
+              edit
+            </button>
+          </Link>
           <button
             onClick={() => {
               handleDelete(item);
