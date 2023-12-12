@@ -53,6 +53,14 @@ gap: 2rem;
     border-radius: 8px;
     cursor: pointer;
   }
+
+  .bottom{
+    display: flex;
+    gap: 2rem;
+  }
+  .links{
+    text-decoration: none;
+  }
   
   .forgotPasswordBtn {
     width: 100%;

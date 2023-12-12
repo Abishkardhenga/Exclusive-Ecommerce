@@ -20,11 +20,11 @@ const Navbar = () => {
         <Link to="/" className={styles.links}>
           <p className={styles.navItem}>Home</p>
         </Link>
-        <Link to="/contact" className={styles.links}>
-          <p className={styles.navItem}>Contact</p>
+        <Link to="/seller" className={styles.links}>
+          <p className={styles.navItem}>Be Seller</p>
         </Link>
-        <Link to="/about" className={styles.links}>
-          <p className={styles.navItem}>About</p>
+        <Link to="/login" className={styles.links}>
+          <p className={styles.navItem}>Login</p>
         </Link>
         <Link to="/signup" className={styles.links}>
           <p className={styles.navItem}>Signup</p>

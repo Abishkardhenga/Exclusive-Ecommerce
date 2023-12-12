@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import styles from "./Loginbox.module.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
 import { UserInfo } from "../../utilis/UseContext/UseContext";
 
@@ -66,6 +67,12 @@ const Loginbox = () => {
           Login
         </button>
         <button className={styles.forgotPasswordBtn}>Forgot Password?</button>
+      </div>
+      <div className={styles.bottom}>
+        <p className={styles.loginText}>Already have an Account? </p>
+        <Link to={"/signup"} className={styles.links}>
+          <p className={styles.loginLink}>Register </p>
+        </Link>
       </div>
     </div>
   );
