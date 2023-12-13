@@ -16,29 +16,33 @@ import Toys from "./Pages/Category/Toys/Toys";
 import Seller from "./Pages/Seller/Seller";
 import Addproduct from "./Pages/AddProduct/Addproduct";
 import Mystore from "./Pages/MyStore/Mystore";
+import ProtectedRoutes from "./utilis/Protectedroutes/ProtectedRoutes";
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/seller" element={<Seller />}>
-        <Route path="addproduct" element={<Addproduct />} />
-        <Route path="mystore" element={<Mystore />} />
+
+      <Route element={<ProtectedRoutes />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/seller" element={<Seller />}>
+          <Route path="addproduct" element={<Addproduct />} />
+          <Route path="mystore" element={<Mystore />} />
+        </Route>
+        <Route path="/bookmark" element={<Bookmark />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/category">
+          <Route path="Fashion" element={<Fashion />} />
+          <Route path="Health" element={<Health />} />
+          <Route path="toys" element={<Toys />} />
+          <Route path="electronics" element={<Electronics />} />
+        </Route>
+        <Route path="/cart" element={<Cart />} />
       </Route>
-      <Route path="/about" element={<Aboutus />} />
-      <Route path="/bookmark" element={<Bookmark />} />
-      <Route path="/product" element={<Product />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/checkout" element={<Checkout />} />
-      <Route path="/category">
-        <Route path="Fashion" element={<Fashion />} />
-        <Route path="Health" element={<Health />} />
-        <Route path="toys" element={<Toys />} />
-        <Route path="electronics" element={<Electronics />} />
-      </Route>
-      <Route path="/cart" element={<Cart />} />
+      <Route path="/about" element={<Aboutus />} />
     </Routes>
   );
 };
