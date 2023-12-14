@@ -15,8 +15,6 @@ const Mystore = () => {
     dispatch({ type: "setGetProductFn", payload: ProductFetch });
   }, []);
 
-  console.log("this is state", state);
-
   let ProductFetch = async () => {
     try {
       const { data, status } = await axios.get(api);

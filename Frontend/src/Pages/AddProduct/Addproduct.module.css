@@ -33,13 +33,28 @@ height: 33px;
 
 .btnWrapper{
     display: flex;
+    gap: 3rem;
     align-items: center;
     justify-content: center;
 }
 
-.addBtn{
-    width: 150px;
+.addBtn  {
+    width: 130px;
     border-radius: 8px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    /* gap: 1px; */
     cursor: pointer;
     background-color: red;
+}
+
+.cancelBtn{
+    width: 130px;
+    border-radius: 8px;
+    background-color: red;
+
+    font-size: 10px;
+    letter-spacing: 1px;
+    /* gap: 1px; */
+    cursor: pointer;
 }

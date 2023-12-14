@@ -5,7 +5,6 @@ import axios from "axios";
 
 const Addproduct = () => {
   let { state, dispatch } = useContext(UserInfo);
-  console.log("this is state", state);
   let api = "http://localhost:8000/addproduct";
   let [name, setName] = useState();
   let [image, setImage] = useState();
@@ -18,13 +17,23 @@ const Addproduct = () => {
   useEffect(() => {
     setOwner(state?.userdata?._id);
   }, []);
-  console.log("ths is editing data", state?.editingData);
 
   useEffect(() => {
-    // if (state.editMode == true) {
-    update();
-    // }
+    if (state.editMode == true) {
+      update();
+    }
   }, []);
+
+  let handleCancel = () => {
+    setName("");
+    setImage("");
+    setDescription("");
+    setPrice("");
+    setCategory("");
+    dispatch({ type: "setEditingmode", payload: false });
+    dispatch({ type: "setEditingdata", payload: null });
+    console.log("this is state", state);
+  };
 
   let update = () => {
     setName(state?.editingData?.name);
@@ -55,7 +64,7 @@ const Addproduct = () => {
     }
   };
 
-  console.log(state.editingData);
+  // console.log(state.editingData);
   let handleAdd = async () => {
     try {
       if (state.editMode == true) {
@@ -173,6 +182,19 @@ const Addproduct = () => {
           >
             {state.editMode == true ? "Update" : "Add"}
           </button>
+
+          {state.editMode == true ? (
+            <button
+              className={styles.cancelBtn}
+              onClick={() => {
+                handleCancel();
+              }}
+            >
+              Cancel
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

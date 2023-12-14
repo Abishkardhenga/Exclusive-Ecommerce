@@ -9,7 +9,7 @@ import Dropdown from "../Dropdown/Dropdown";
 
 const Navbar = () => {
   let { state, dispatch } = useContext(UserInfo);
-  console.log("thi is state ", state);
+  // console.log("thi is state ", state);
 
   return (
     <div className={styles.navbarContainer}>
