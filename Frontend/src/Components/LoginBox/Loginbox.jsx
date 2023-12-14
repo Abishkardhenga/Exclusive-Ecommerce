@@ -1,13 +1,14 @@
 import React, { useContext, useState } from "react";
 import styles from "./Loginbox.module.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
 import { UserInfo } from "../../utilis/UseContext/UseContext";
 
 const Loginbox = () => {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
+  const navigate = useNavigate();
   let api = "http://localhost:8000/login";
   let { state, dispatch } = useContext(UserInfo);
   let handleLogin = async () => {
@@ -23,6 +24,7 @@ const Loginbox = () => {
         setPassword("");
         // console.log("this is data", data);
         dispatch({ type: "setUserdata", payload: data.data });
+        navigate("/");
       }
       console.log("this is data", data);
     } catch (err) {

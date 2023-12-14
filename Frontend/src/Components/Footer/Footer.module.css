@@ -94,6 +94,7 @@ width: 100%;
 
   .socialmediaName{
   color: grey;
+  text-decoration: none;
   cursor: pointer;
   font-size: 12px;
   font-weight: bold;

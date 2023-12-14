@@ -58,21 +58,45 @@ const Footer = () => {
           <h3 className={styles.subHeading}>Social Media </h3>
           <div className={styles.iconWrapper}>
             <FaFacebookF className={styles.icons} />
-            <p className={styles.socialmediaName}>Facebook</p>
+            <a
+              target="_blank"
+              href="https://www.facebook.com/officialroutineofnepalbanda/"
+              className={styles.socialmediaName}
+            >
+              Facebook
+            </a>
           </div>
           <div className={styles.iconWrapper}>
             <FaInstagram className={styles.icons} />
-            <p className={styles.socialmediaName}>Instagram</p>
+            <a
+              href="https://www.instagram.com/routineofnepalronb/?hl=en"
+              target="_blank"
+              className={styles.socialmediaName}
+            >
+              Instagram
+            </a>
           </div>
           <div className={styles.iconWrapper}>
             {" "}
             <FaLinkedinIn className={styles.icons} />
-            <p className={styles.socialmediaName}>Linkedin</p>
+            <a
+              href="https://www.linkedin.com/company/routineofnepalbanda/?originalSubdomain=np"
+              target="_blank"
+              className={styles.socialmediaName}
+            >
+              Linkedin
+            </a>
           </div>
           <div className={styles.iconWrapper}>
             {" "}
             <FaTiktok className={styles.icons} />
-            <p className={styles.socialmediaName}>Tiktok</p>
+            <a
+              href="https://www.tiktok.com/@routineofnepalbanda?lang=en"
+              target="_blank"
+              className={styles.socialmediaName}
+            >
+              Tiktok
+            </a>
           </div>
         </div>
       </div>
