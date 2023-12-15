@@ -22,9 +22,9 @@ const LoginHandler = async (req, res) => {
           res.cookie("token", token).json(data);
         }
       );
-      res
-        .status(200)
-        .json({ message: "Login SuccessFully ", data, success: true });
+      // res
+      //   .status(200)
+      //   .json({ message: "Login SuccessFully ", data, success: true });
     }
   } catch (err) {
     res
