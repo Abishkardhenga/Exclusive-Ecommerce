@@ -8,13 +8,16 @@
     width: 100%;
     /* padding: 1rem; */
     justify-content: space-around;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .formContainer{
     width: 40%;
     padding: 1rem;
-    height: 80vh;
-    background-color: grey;
+    height: 82vh;
+    background-color: white;
+    border: 1px solid grey;
     display: flex;
     gap: 1rem;
     flex-direction: column;
@@ -29,10 +32,14 @@
 
 .imgWrapper{
     width: 40vw;
-    height: 60vh;
+    height: 58vh;
 }
 .textArea{
     width: 100%;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.461);
+    /* border: none; */
+    outline: none;
 }
 
 .image{
@@ -56,4 +63,51 @@ width: 25px;
 .emailWrapper, .phoneWrapper{
     display: flex;
     flex-direction: column;
+}
+
+.inputBox{
+border-radius: 8px;
+/* border: none; */
+outline: none;
+border: 1px solid grey;
+padding-left: 5px;
+width: 205px;
+height: 28px;
+}
+
+.emailInputBox{
+    border-radius: 8px;
+    border: 1px solid grey;
+/* border: none; */
+outline: none;
+padding-left: 5px;
+width: 205px;
+height: 28px;
+}
+
+.rightContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.email_phoneWrapper{
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+
+.phoneContainerWrapper, .emailContainerWrapper{
+    display: flex;
+    background-color: aqua;
+    padding: 0.25rem 1rem;
+}
+
+.sendBtn{
+background-color: red;
+}
+
+.sendBtnWrapper{
+    display: flex;
+    width: 100%;
 }

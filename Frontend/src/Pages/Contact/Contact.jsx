@@ -37,7 +37,11 @@ const Contact = () => {
           </div>
           <div>
             <p>Email Address</p>
-            <input placeholder="enter the email" type="text" />
+            <input
+              className={styles.emailInputBox}
+              placeholder="enter the email"
+              type="text"
+            />
           </div>
           <div>
             <p>Message</p>
@@ -45,9 +49,12 @@ const Contact = () => {
               placeholder="Leave us a message"
               className={styles.textArea}
             ></textarea>
+            <div className={styles.sendBtnWrapper}>
+              <button className={styles.sendBtn}>Send</button>
+            </div>
           </div>
         </div>
-        <div>
+        <div className={styles.rightContainer}>
           <div className={styles.imgWrapper}>
             <img
               src={
@@ -57,7 +64,7 @@ const Contact = () => {
               alt="modelImage"
             />
           </div>
-          <div>
+          <div className={styles.email_phoneWrapper}>
             <div className={styles.emailContainerWrapper}>
               <MdOutlineEmail className={styles.emailIcon} />
               <div className={styles.emailWrapper}>
