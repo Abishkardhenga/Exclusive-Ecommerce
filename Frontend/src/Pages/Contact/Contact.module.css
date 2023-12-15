@@ -15,8 +15,9 @@
 .formContainer{
     width: 40%;
     padding: 1rem;
+    /* background-color: red; */
     height: 82vh;
-    background-color: white;
+    background-color: rgba(128, 128, 128, 0.345);
     border: 1px solid grey;
     display: flex;
     gap: 1rem;
@@ -99,7 +100,7 @@ height: 28px;
 
 .phoneContainerWrapper, .emailContainerWrapper{
     display: flex;
-    background-color: aqua;
+    background-color: rgba(128, 128, 128, 0.532);
     padding: 0.25rem 1rem;
 }
 

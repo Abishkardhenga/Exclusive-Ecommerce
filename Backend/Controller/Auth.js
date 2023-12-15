@@ -1,3 +1,4 @@
+const jwt = require("jsonwebtoken");
 const owner = require("../Models/Owner");
 const LoginHandler = async (req, res) => {
   const { email, password } = req.body;
@@ -12,12 +13,23 @@ const LoginHandler = async (req, res) => {
         .status(403)
         .json({ message: " Enter all the fields", success: false });
     } else if (data.password === password) {
+      jwt.sign(
+        { email: email, password: password },
+        process.env.JWT_SECRET,
+        {},
+        (err, token) => {
+          if (err) throw err;
+          res.cookie("token", token).json(data);
+        }
+      );
       res
         .status(200)
         .json({ message: "Login SuccessFully ", data, success: true });
     }
   } catch (err) {
-    res.status(403).json({ message: "error", err, success: false });
+    res
+      .status(403)
+      .json({ message: "error", err, garo: err.message, success: false });
   }
 };
 const RegisterHandler = async (req, res) => {
