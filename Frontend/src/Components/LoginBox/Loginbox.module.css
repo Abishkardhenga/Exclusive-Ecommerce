@@ -19,6 +19,7 @@
   .loginSubtitle {
     /* color: #555; */
     color: red;
+    font-weight: 600;
   }
   
   .inputWrapper {
