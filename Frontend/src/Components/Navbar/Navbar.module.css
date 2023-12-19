@@ -8,6 +8,11 @@
     justify-content: space-around;
 
 }
+
+.navItem{
+font-weight: 600;
+letter-spacing: 1px;
+}
 .links{
     text-decoration: none;
     color: black;

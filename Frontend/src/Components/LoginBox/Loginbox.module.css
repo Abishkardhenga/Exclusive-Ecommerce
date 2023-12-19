@@ -15,6 +15,12 @@
   .loginTitle {
     font-size: 1.5em;
   }
+
+  .loginLink{
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 1px;
+  }
   
   .loginSubtitle {
     /* color: #555; */
