@@ -13,18 +13,9 @@ const LoginHandler = async (req, res) => {
         .status(403)
         .json({ message: " Enter all the fields", success: false });
     } else if (data.password === password) {
-      jwt.sign(
-        { email: email, password: password },
-        process.env.JWT_SECRET,
-        {},
-        (err, token) => {
-          if (err) throw err;
-          res.cookie("token", token).json(data);
-        }
-      );
-      // res
-      //   .status(200)
-      //   .json({ message: "Login SuccessFully ", data, success: true });
+      res
+        .status(200)
+        .json({ message: "Login SuccessFully ", data, success: true });
     }
   } catch (err) {
     res

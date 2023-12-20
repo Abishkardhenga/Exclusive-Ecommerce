@@ -16,7 +16,7 @@
     font-size: 1.5em;
   }
 
-  .loginLink{
+  .loginLink,.loginText{
     font-weight: 600;
     cursor: pointer;
     letter-spacing: 1px;
