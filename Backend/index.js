@@ -1,13 +1,11 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 dotenv.config();
 const db = require("./utilis/db");
 app.use(express.json());
-app.use(cookieParser());
-app.use(express.urlencoded({ extended: false }));
+
 db();
 
 app.use(

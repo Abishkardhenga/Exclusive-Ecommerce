@@ -1,4 +1,3 @@
-const jwt = require("jsonwebtoken");
 const owner = require("../Models/Owner");
 const LoginHandler = async (req, res) => {
   const { email, password } = req.body;
@@ -6,21 +5,26 @@ const LoginHandler = async (req, res) => {
   const data = await owner.findOne({ email });
   try {
     if (!data) {
-      res.status(404).json({ message: "No data found ", success: false });
+      return res
+        .status(404)
+        .json({ message: "No data found ", success: false });
     }
     if (!email || !password) {
-      res
+      return res
         .status(403)
         .json({ message: " Enter all the fields", success: false });
-    } else if (data.password === password) {
-      res
+    } else if (data.password !== password) {
+      return res
+        .status(403)
+        .json({ message: "passwor is wrong  ", success: false });
+    } else {
+      return res
         .status(200)
         .json({ message: "Login SuccessFully ", data, success: true });
     }
   } catch (err) {
-    res
-      .status(403)
-      .json({ message: "error", err, garo: err.message, success: false });
+    console.log("this is err", err);
+    return res.status(403).json({ message: err, success: false });
   }
 };
 const RegisterHandler = async (req, res) => {
