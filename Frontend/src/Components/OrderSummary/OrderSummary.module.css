@@ -1,0 +1,94 @@
+/* OrderSummary.module.css */
+
+.orderSummaryContainer {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .couponAndSummaryContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  
+  .couponContainer {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .promoCodeContainer {
+    margin-bottom: 15px;
+  }
+  
+  .inputContainer {
+    display: flex;
+  }
+  
+  input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 8px;
+  }
+  
+  .applyButton {
+    padding: 8px 15px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .summaryContainer {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    flex: 1;
+    margin-left: 20px;
+  }
+  
+  .itemDetailsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .itemDetail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .placeOrderButton {
+    padding: 15px;
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .placeOrderButton:hover,
+  .applyButton:hover {
+    background-color: #45a049;
+  }
+  

@@ -1,0 +1,16 @@
+.heroSection{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.bodySection{
+    width: 100%;
+
+    display: flex;
+}
+
+.heroSection{
+    display: flex;
+    width: 70%;
+}

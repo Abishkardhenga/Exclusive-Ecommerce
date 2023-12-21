@@ -3,13 +3,26 @@
     width: 60%;
     justify-content:space-between;   
      height: 100px;
-    background-color: white;
+    background-color: grey;
     align-items: center;
     padding: 0rem 2rem;
 border-bottom: 0.25px solid grey;
 
 }
+.Icon{
+    color: red;
+}
 
+.increaseBtn, .decreaseBtn{
+
+    cursor: pointer;
+}
+
+.btnWrapper{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
 .Aboutproduct{
     display: flex;
     gap: 4rem;
