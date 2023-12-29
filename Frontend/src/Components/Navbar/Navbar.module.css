@@ -8,6 +8,13 @@
     justify-content: space-around;
 
 }
+.cartWrapper{
+    display: flex;
+    gap: 0.5rem;
+}
+.cartnumber{
+    color: red;
+}
 
 .navItem{
 font-weight: 600;

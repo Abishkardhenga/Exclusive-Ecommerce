@@ -9,6 +9,7 @@ let user = {
   getProductFn: null,
   editMode: false,
   editingData: null,
+  OrderDetail: null,
 };
 
 let reducer = (state, action) => {
@@ -19,6 +20,8 @@ let reducer = (state, action) => {
       return { ...state, getProductFn: action.payload };
     case "setEditingData":
       return { ...state, editingData: action.payload };
+    case "setOrderDetail":
+      return { ...state, OrderDetail: action.payload };
     case "setEditingmode":
       return { ...state, editMode: action.payload };
 

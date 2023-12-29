@@ -4,8 +4,7 @@
     display: flex;
     flex-direction: column;
     width: 30vw;
-    margin: 20px auto;
-    padding: 20px;
+    padding: 1rem 2rem;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -58,33 +57,41 @@
   
   .summaryContainer {
     background-color: #f9f9f9;
-    padding: 15px;
+    width: 100%;
     border-radius: 8px;
-    flex: 1;
-    margin-left: 20px;
+display: flex;
+flex-direction: column;
+gap: 1rem;
   }
   
   .itemDetailsContainer {
     display: flex;
+    /* background-color: blue; */
     flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
   }
   
   .itemDetail {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
-  }
+    /* background-color: red; */
+    width: 100%;
+
+}
   
   .placeOrderButton {
-    padding: 15px;
     background-color: #2196f3;
     color: #fff;
     border: none;
     border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    text-align: center;
+    width: 80%;
+    height: 34px;
     font-size: 16px;
-    margin-top: 20px;
   }
   
   .placeOrderButton:hover,

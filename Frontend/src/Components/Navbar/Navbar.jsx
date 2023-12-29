@@ -44,7 +44,10 @@ const Navbar = () => {
           <PiBookmarkSimpleDuotone className={styles.navIcon} />
         </Link>
         <Link to="/cart" className={styles.links}>
-          <IoCartOutline className={styles.navIcon} />
+          <div className={styles.cartWrapper}>
+            <IoCartOutline className={styles.navIcon} />
+            <p className={styles.cartnumber}>{state.cartCollection.length}</p>
+          </div>
         </Link>
         {state.userdata ? <Dropdown /> : "no hey"}
       </div>

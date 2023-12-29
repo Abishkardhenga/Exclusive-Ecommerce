@@ -6,6 +6,8 @@ import { MdAddShoppingCart } from "react-icons/md";
 
 const Cartdesign = ({ item }) => {
   let [Quantity, setQuantity] = useState(1);
+  let [IsChecked, setIsChecked] = useState(false);
+  let { dispatch, state } = useContext(UserInfo);
 
   let IncreaseQuantity = () => {
     setQuantity(1 + Quantity);
@@ -16,12 +18,26 @@ const Cartdesign = ({ item }) => {
     }
     setQuantity(Quantity - 1);
   };
+
+  const handleCheckboxChange = () => {
+    setIsChecked(true);
+    alert("btn clicked");
+    dispatch({ type: "setOrderDetail", payload: item });
+  };
+  console.log("this is state", state);
   console.log("this is item", item);
-  let { dispatch, state } = useContext(UserInfo);
 
   return (
     <div className={styles.cartContainer}>
       <div className={styles.Aboutproduct}>
+        <input
+          type="checkbox"
+          checked={IsChecked}
+          onChange={() => {
+            handleCheckboxChange();
+          }} // Attach the event handler
+          className={styles.checkBox}
+        />
         <div className={styles.imgWrapper}>
           <img
             src={item?.image}
