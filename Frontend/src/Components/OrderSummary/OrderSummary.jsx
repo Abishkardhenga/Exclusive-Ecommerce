@@ -4,8 +4,8 @@ import { UserInfo } from "../../utilis/UseContext/UseContext";
 
 const OrderSummary = () => {
   let { dispatch, state } = useContext(UserInfo);
-  console.log("this is order summary state", state.OrderDetail);
-  console.log("this is order summary state proce", state.OrderDetail.price);
+  console.log("this is order summary state", state?.OrderDetail);
+  console.log("this is order summary state proce", state?.OrderDetail?.price);
 
   return (
     <div className={styles.orderSummaryContainer}>
@@ -49,7 +49,7 @@ const OrderSummary = () => {
           </div>
         </div>
 
-        <div className={styles.placeOrderButton}>Place Order</div>
+        <button className={styles.placeOrderButton}>Place Order</button>
       </div>
     </div>
   );
