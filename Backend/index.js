@@ -17,6 +17,7 @@ app.use(
 );
 app.use(require("./Routes/AuthRoutes"));
 app.use(require("./Routes/ProductRoutes"));
+app.use(require("./Routes/CartRoutes"));
 app.listen(8000, () => {
   console.log("port started at 8000");
 });
