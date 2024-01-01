@@ -44,4 +44,27 @@ const deleteCartHandler = async (req, res) => {
   }
 };
 
-module.exports = { CreateCartHandler, getCartHandler, deleteCartHandler };
+const editCartHandler = async (req, res) => {
+  const { id } = req.params;
+  try {
+    let data = await model.findByIdAndUpdate(
+      id,
+      {
+        quantity: req.body.quantity,
+      },
+      { new: true }
+    );
+    res
+      .status(200)
+      .json({ message: "cart  updated successfully", data, success: true });
+  } catch (err) {
+    res.status(403).json({ message: err, success: false });
+  }
+};
+
+module.exports = {
+  CreateCartHandler,
+  getCartHandler,
+  deleteCartHandler,
+  editCartHandler,
+};
