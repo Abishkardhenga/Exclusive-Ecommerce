@@ -41,11 +41,9 @@ border-bottom: 0.25px solid grey;
 }
 
 .deleteIcon{
-    color: grey;
     cursor: pointer;
 }
 
 .cartIcon{
 cursor: pointer;
-    color: grey;
 }
