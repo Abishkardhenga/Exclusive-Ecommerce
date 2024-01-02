@@ -8,6 +8,7 @@ const Cartdesign = ({ item }) => {
   let [Quantity, setQuantity] = useState(1);
   let [IsChecked, setIsChecked] = useState(false);
   let { dispatch, state } = useContext(UserInfo);
+  console.log("this is item", item);
 
   let IncreaseQuantity = () => {
     setQuantity(1 + Quantity);

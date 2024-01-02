@@ -14,7 +14,6 @@ const Home = () => {
   let { state, dispatch } = useContext(UserInfo);
 
   useEffect(() => {
-    console.log("this is state", state);
     GetAllProduct();
   }, []);
 

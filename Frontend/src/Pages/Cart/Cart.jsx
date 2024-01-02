@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./Cart.module.css";
+import axios from "axios";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import { UserInfo } from "../../utilis/UseContext/UseContext";
@@ -10,11 +11,28 @@ import Cartdesign from "../../Components/CartDesign/CartDesign";
 import OrderSummary from "../../Components/OrderSummary/OrderSummary";
 
 const Cart = () => {
-  let [cartCollection, setCartCollection] = useState([]);
   let { dispatch, state } = useContext(UserInfo);
+  let [cartCollection, setCartCollection] = useState([]);
+  let api = "http://localhost:8000/getCart?buyer=";
+  let buyer = state.userdata._id;
+
   useEffect(() => {
-    setCartCollection(state.cartCollection);
+    GetCart();
   }, []);
+
+  const GetCart = async () => {
+    try {
+      const { data, status } = await axios.get(api + buyer);
+      console.log("this is data", data);
+      if (status == 200) {
+        console.log("this is data message", data.message);
+        setCartCollection(data.message);
+      }
+    } catch (err) {
+      console.log("this is err", err.message);
+    }
+  };
+
   return (
     <div className={styles.cartContainer}>
       <Navbar />
