@@ -25,7 +25,7 @@ const ProductCard = ({ item }) => {
     }
   };
 
-  console.log("this is state", state);
+  // console.log("this is state", state);
 
   return (
     <div className={styles.productContainer}>

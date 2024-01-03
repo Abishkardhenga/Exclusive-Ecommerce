@@ -10,7 +10,6 @@ const OrderSummary = () => {
   return (
     <div className={styles.orderSummaryContainer}>
       <h1>Order Summary</h1>
-
       <div className={styles.couponAndSummaryContainer}>
         {/* <div className={styles.couponContainer}>
           <p>Discount Coupons</p>

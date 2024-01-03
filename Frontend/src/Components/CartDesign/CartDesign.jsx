@@ -6,6 +6,7 @@ import { MdAddShoppingCart } from "react-icons/md";
 import axios from "axios";
 
 const Cartdesign = ({ item }) => {
+  console.log("this is item", item);
   const [Quantity, setQuantity] = useState(1);
   const [IsChecked, setIsChecked] = useState(false);
   const [ProductDetail, setProductDetail] = useState();
@@ -33,21 +34,22 @@ const Cartdesign = ({ item }) => {
   const getProduct = async () => {
     const { data, status } = await axios.get(getProductApi);
     if (status == 200) {
+      console.log("this is getproduct", data);
       setProductDetail(data.message[0]);
       console.log("this is state", state);
     }
   };
-  const deleteProduct = async (item) => {
+  const deleteProduct = async (deletingitem) => {
+    console.log("this is deleting item ko id", deletingitem._id);
     try {
       const { data, status } = await axios.delete(
-        `${deleteProductApi}/${item._id}`
+        `${deleteProductApi}/${deletingitem._id}`
       );
 
       if (status === 200) {
         alert("delete");
+        state.getCartFn();
         console.log("this is deleted data", data);
-
-        await state.getCartFn();
       }
     } catch (err) {
       console.log("this is err", err);

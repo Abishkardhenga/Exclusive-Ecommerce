@@ -15,18 +15,16 @@ const Cart = () => {
   let [cartCollection, setCartCollection] = useState([]);
   let api = "http://localhost:8000/getCart?buyer=";
   let buyer = state.userdata._id;
+  console.log("this is buyer", buyer);
 
   useEffect(() => {
     GetCart();
-  }, []);
-  useEffect(() => {
     dispatch({ type: "setGetCartFn", payload: GetCart });
-    console.log("this is state", state);
   }, []);
 
   const GetCart = async () => {
     try {
-      const { data, status } = await axios.get(api + buyer);
+      const { data, status } = await axios.get(`${api}${buyer}`);
       console.log("this is get cart data", data);
       if (status == 200) {
         setCartCollection(data.message);
