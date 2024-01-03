@@ -34,6 +34,7 @@ const Cartdesign = ({ item }) => {
     const { data, status } = await axios.get(getProductApi);
     if (status == 200) {
       setProductDetail(data.message[0]);
+      console.log("this is state", state);
     }
   };
   const deleteProduct = async (item) => {
@@ -41,14 +42,18 @@ const Cartdesign = ({ item }) => {
       const { data, status } = await axios.delete(
         `${deleteProductApi}/${item._id}`
       );
-      if (status == 200) {
-        alert("dekete");
+
+      if (status === 200) {
+        alert("delete");
         console.log("this is deleted data", data);
+
+        await state.getCartFn();
       }
     } catch (err) {
       console.log("this is err", err);
     }
   };
+
   useEffect(() => {
     getProduct();
   }, []);

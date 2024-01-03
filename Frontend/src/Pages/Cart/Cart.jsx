@@ -19,13 +19,16 @@ const Cart = () => {
   useEffect(() => {
     GetCart();
   }, []);
+  useEffect(() => {
+    dispatch({ type: "setGetCartFn", payload: GetCart });
+    console.log("this is state", state);
+  }, []);
 
   const GetCart = async () => {
     try {
       const { data, status } = await axios.get(api + buyer);
-      console.log("this is data", data);
+      console.log("this is get cart data", data);
       if (status == 200) {
-        console.log("this is data message", data.message);
         setCartCollection(data.message);
       }
     } catch (err) {
