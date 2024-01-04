@@ -6,7 +6,6 @@ import { MdAddShoppingCart } from "react-icons/md";
 import axios from "axios";
 
 const Cartdesign = ({ item }) => {
-  console.log("this is item", item);
   const [Quantity, setQuantity] = useState(1);
   const [IsChecked, setIsChecked] = useState(false);
   const [ProductDetail, setProductDetail] = useState();
@@ -49,7 +48,6 @@ const Cartdesign = ({ item }) => {
       if (status === 200) {
         alert("delete");
         state.getCartFn();
-        console.log("this is deleted data", data);
       }
     } catch (err) {
       console.log("this is err", err);
@@ -68,7 +66,7 @@ const Cartdesign = ({ item }) => {
           checked={IsChecked}
           onChange={() => {
             handleCheckboxChange();
-          }} // Attach the event handler
+          }}
           className={styles.checkBox}
         />
         <div className={styles.imgWrapper}>

@@ -1,15 +1,14 @@
-const {
-  getCartHandler,
-  CreateCartHandler,
-  deleteCartHandler,
-  editCartHandler
-} = require("../Controller/Cart");
-
 const routes = require("express").Router();
+const {
+  createAddressController,
+  deleteAddressController,
+  editAddressController,
+  getAddressController,
+} = require("../Controller/Shipping");
 
-routes.get("/getCart", getCartHandler);
-routes.post("/createCart", CreateCartHandler);
-routes.delete("/deleteCart/:id", deleteCartHandler);
-routes.patch("/editCart/:id", editCartHandler);
+routes.get("/getCart", getAddressController);
+routes.post("/createCart", createAddressController);
+routes.delete("/deleteCart/:id", deleteAddressController);
+routes.patch("/editCart/:id", editAddressController);
 
 module.exports = routes;
