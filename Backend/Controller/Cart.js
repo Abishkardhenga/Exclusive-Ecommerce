@@ -17,7 +17,9 @@ const getCartHandler = async (req, res) => {
 
   try {
     if (!data) {
-      res.status(403).json({ message: "empty xa", success: false });
+      res
+        .status(403)
+        .json({ message: "No data is available ", success: false });
     } else {
       res.status(200).json({ message: data, success: true });
     }
