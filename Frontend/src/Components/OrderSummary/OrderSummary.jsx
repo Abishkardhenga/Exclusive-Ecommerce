@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import styles from "./OrderSummary.module.css";
 import { UserInfo } from "../../utilis/UseContext/UseContext";
+import Modal from "../../Pages/Shippingform/Shippingform";
 
 const OrderSummary = () => {
   let { dispatch, state } = useContext(UserInfo);
-  // console.log("this is order summary state", state?.OrderDetail);
-  // console.log("this is order summary state proce", state?.OrderDetail?.price);
 
   return (
     <div className={styles.orderSummaryContainer}>
