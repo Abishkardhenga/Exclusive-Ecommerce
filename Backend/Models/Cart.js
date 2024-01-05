@@ -9,7 +9,7 @@ const Cart = new mongoose.Schema(
     },
     quantity: {
       type: Number,
-      required: true,
+      // required: true,
       default: 1,
     },
     buyer: {
