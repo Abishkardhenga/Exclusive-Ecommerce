@@ -1,7 +1,7 @@
 const model = require("../Models/Shipping");
 
 const createAddressController = async (req, res) => {
-  const { fullname, phonenumber, emailAddress, zipcode, country, city } =
+  const { fullname, phonenumber, emailAddress, zipcode, country, city, user } =
     req.body;
 
   try {
@@ -11,13 +11,16 @@ const createAddressController = async (req, res) => {
       !emailAddress ||
       !zipcode ||
       !country ||
+      !user ||
       !city
     ) {
-      return res
-        .status(403)
-        .json({ message: "Please enter all the details gaar", success: false });
+      return res.status(403).json({
+        message: "Please enter all the details correctly.",
+        success: false,
+      });
     }
 
+    // Assuming `model` is your mongoose model
     const data = await model.create(req.body);
 
     res.status(200).json({

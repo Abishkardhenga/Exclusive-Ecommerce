@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Shippingform.css"; // Import your CSS file for styling
 import axios from "axios";
+import { UserInfo } from "../../utilis/UseContext/UseContext";
 
 const ShippingForm = () => {
+  const { dispatch, state } = useContext(UserInfo);
+  console.log("this is state bata user id ", state?.userdata?._id);
+  console.log("this is state bata user id ", state?.userdata);
+
   const [shippingDetails, setShippingDetails] = useState({
     fullname: "",
     emailAddress: "",
@@ -24,14 +29,19 @@ const ShippingForm = () => {
 
   let CreateShippingAddress = async () => {
     try {
-      await axios.post(api, {
+      const { data, status } = await axios.post(api, {
         fullname: shippingDetails.fullname,
         emailAddress: shippingDetails.emailAddress,
         phonenumber: shippingDetails.phonenumber,
         country: shippingDetails.country,
         city: shippingDetails.city,
         zipcode: shippingDetails.zipcode,
+        user: state?.userdata?._id,
       });
+      if (status == 200) {
+        alert("successfully stored the shipping address");
+        console.log("this is data", data);
+      }
     } catch (err) {
       console.log(err);
     }

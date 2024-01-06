@@ -10,6 +10,11 @@ const shippingSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "owner",
+      required: true,
+    },
     phonenumber: {
       type: Number,
       required: true,
