@@ -1,10 +1,20 @@
 import React, { useContext } from "react";
 import styles from "./OrderSummary.module.css";
 import { UserInfo } from "../../utilis/UseContext/UseContext";
-import Modal from "../../Pages/Shippingform/Shippingform";
+import Modal from "../../Modal/Modal";
+import ShippingForm from "../../Pages/Shippingform/Shippingform";
 
 const OrderSummary = () => {
   let { dispatch, state } = useContext(UserInfo);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
   return (
     <div className={styles.orderSummaryContainer}>
@@ -47,7 +57,14 @@ const OrderSummary = () => {
           </div>
         </div>
 
-        <button className={styles.placeOrderButton}>Place Order</button>
+        <button onClick={handleOpen} className={styles.placeOrderButton}>
+          Place Order
+        </button>
+        <Modal isOpen={open} onClose={handleClose}>
+          <>
+            <ShippingForm />
+          </>
+        </Modal>
       </div>
     </div>
   );

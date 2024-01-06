@@ -40,7 +40,7 @@ const ShippingForm = () => {
   return (
     <div className="shipping-form-container">
       <h2>Shipping Details</h2>
-      <div>
+      <div className="container">
         <label>
           Full Name:
           <input
