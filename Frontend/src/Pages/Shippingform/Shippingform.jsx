@@ -38,9 +38,16 @@ const ShippingForm = () => {
         zipcode: shippingDetails.zipcode,
         user: state?.userdata?._id,
       });
-      if (status == 200) {
-        alert("successfully stored the shipping address");
-        console.log("this is data", data);
+      if (status === 200) {
+        alert("Successfully stored the shipping address");
+        setShippingDetails({
+          fullname: "",
+          emailAddress: "",
+          phonenumber: "",
+          country: "",
+          city: "",
+          zipcode: "",
+        });
       }
     } catch (err) {
       console.log(err);

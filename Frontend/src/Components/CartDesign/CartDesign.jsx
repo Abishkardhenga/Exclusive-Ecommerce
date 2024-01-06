@@ -4,24 +4,49 @@ import { UserInfo } from "../../utilis/UseContext/UseContext";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { MdAddShoppingCart } from "react-icons/md";
 import axios from "axios";
+import { useAsyncError } from "react-router-dom";
 
 const Cartdesign = ({ item }) => {
-  const [Quantity, setQuantity] = useState(1);
+  console.log("this is item", item);
+  const [quantity, setQuantity] = useState(item.quantity);
   const [IsChecked, setIsChecked] = useState(false);
   const [ProductDetail, setProductDetail] = useState();
   let { dispatch, state } = useContext(UserInfo);
   let id = item.product;
+  useEffect(() => {
+    // Update Quantity state when item.quantity changes
+    setQuantity(item.quantity);
+  }, [item.quantity]);
 
+  let editApi = `http://localhost:8000/editCart`;
   let getProductApi = `http://localhost:8000/getproduct?_id=${id}`;
   let deleteProductApi = "http://localhost:8000/deleteCart";
-  let IncreaseQuantity = () => {
-    setQuantity(1 + Quantity);
+
+  let IncreaseQuantity = async () => {
+    const updatedQuantity = quantity + 1;
+    setQuantity(updatedQuantity);
+    try {
+      await axios.patch(`${editApi}/${item._id}`, {
+        quantity: updatedQuantity,
+      });
+    } catch (err) {
+      console.log("error", err);
+    }
   };
-  let DecreaseQuantity = () => {
-    if (Quantity == 1) {
+
+  let DecreaseQuantity = async () => {
+    if (quantity === 1) {
       return;
     }
-    setQuantity(Quantity - 1);
+    const updatedQuantity = quantity - 1;
+    setQuantity(updatedQuantity);
+    try {
+      await axios.patch(`${editApi}/${item._id}`, {
+        quantity: updatedQuantity,
+      });
+    } catch (err) {
+      console.log("error", err);
+    }
   };
 
   const handleCheckboxChange = () => {
@@ -94,16 +119,16 @@ const Cartdesign = ({ item }) => {
         <button
           className={styles.increaseBtn}
           onClick={() => {
-            IncreaseQuantity();
+            IncreaseQuantity(item._id);
           }}
         >
           +
         </button>
-        <p>{Quantity}</p>
+        <p>{quantity}</p>
         <button
           className={styles.decreaseBtn}
           onClick={() => {
-            DecreaseQuantity();
+            DecreaseQuantity(item._id);
           }}
         >
           -

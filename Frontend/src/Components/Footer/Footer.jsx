@@ -16,19 +16,6 @@ const Footer = () => {
   return (
     <div className={styles.footerContainer}>
       <div className={styles.footUpperPart}>
-        <div className={styles.firstPart}>
-          <h3 className={styles.subHeading}>Exclusive</h3>
-          <p>Subscribe</p>
-          <p>Get 10% off your first order</p>
-          <div className={styles.inputWrapper}>
-            <input
-              placeholder="Enter Your Email"
-              className={styles.inputBox}
-              type="text"
-            />
-            <IoSend />
-          </div>
-        </div>
         <div className={styles.secondPart}>
           <h3 className={styles.subHeading}>Support</h3>
           <p>Butwal 3 Dingarnagar</p>
@@ -45,7 +32,6 @@ const Footer = () => {
             <p>Register</p>
           </Link>
           <p>Cart</p>
-          <p>Wishlist</p>
         </div>
         <div className={styles.quickLinks}>
           <h3 className={styles.subHeading}>Quick Links</h3>
