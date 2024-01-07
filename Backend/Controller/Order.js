@@ -1,9 +1,11 @@
 const Order = require("../Models/Order");
-const CreateOrderHistory = async () => {
-  const data = await Order.create(req.body);
+
+const CreateOrderHistory = async (req, res) => {
   try {
+    const data = await Order.create(req.body);
+
     res.status(200).json({
-      message: "successfuly created the history",
+      message: "successfully created the history",
       data,
       success: true,
     });
@@ -11,7 +13,8 @@ const CreateOrderHistory = async () => {
     res.status(403).json({ message: err.message, success: false });
   }
 };
-const GetOrderHistory = async () => {
+
+const GetOrderHistory = async (req, res) => {
   const { id } = req.params;
   const data = await Order.find({ ...req.query });
   try {
@@ -24,7 +27,7 @@ const GetOrderHistory = async () => {
     res.status(403).json({ message: err.message, success: false });
   }
 };
-const DeleteOrderHistory = async () => {
+const DeleteOrderHistory = async (req, res) => {
   const { id } = req.params;
   const data = await order.findByIdAndDelete(id);
   try {

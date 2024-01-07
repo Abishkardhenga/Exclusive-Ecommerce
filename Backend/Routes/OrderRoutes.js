@@ -7,7 +7,7 @@ const {
 } = require("../Controller/Order");
 
 routes.post("/createOrderHistory", CreateOrderHistory);
-routes.get("/getOrderHistory/:id", GetOrderHistory);
+routes.get("/getOrderHistory", GetOrderHistory);
 routes.delete("/deleteOrderHistory/:id", DeleteOrderHistory);
 
 module.exports = routes;

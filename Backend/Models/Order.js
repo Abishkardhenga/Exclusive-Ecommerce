@@ -7,8 +7,13 @@ const OrderHistory = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       required: true,
     },
-    cartInfo: {
-      ref: "cart",
+    shipping: {
+      ref: "shippingDetails",
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+    },
+    owner: {
+      ref: "owner",
       type: mongoose.Schema.Types.ObjectId,
       required: true,
     },
@@ -16,4 +21,4 @@ const OrderHistory = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.export = mongoose.model("orderHistorySchema", OrderHistory);
+module.exports = mongoose.model("orderHistorySchema", OrderHistory);
