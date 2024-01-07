@@ -118,7 +118,7 @@ const ShippingForm = () => {
           }}
           type="submit"
         >
-          Submit
+          Order Now
         </button>
       </div>
     </div>
