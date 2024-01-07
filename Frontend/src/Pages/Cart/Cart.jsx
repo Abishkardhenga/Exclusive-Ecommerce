@@ -15,8 +15,8 @@ const Cart = () => {
   let [cartCollection, setCartCollection] = useState([]);
   let api = "http://localhost:8000/getCart?buyer=";
   let buyer = state.userdata._id;
-  console.log("this is buyer", buyer);
 
+  // console.log("this is state", state, buyer);
   useEffect(() => {
     GetCart();
     dispatch({ type: "setGetCartFn", payload: GetCart });
@@ -25,7 +25,7 @@ const Cart = () => {
   const GetCart = async () => {
     try {
       const { data, status } = await axios.get(`${api}${buyer}`);
-      console.log("this is get cart data", data);
+      console.log("this is data", data);
       if (status == 200) {
         setCartCollection(data.message);
       }

@@ -7,7 +7,6 @@ import axios from "axios";
 import { useAsyncError } from "react-router-dom";
 
 const Cartdesign = ({ item }) => {
-  console.log("this is item", item);
   const [quantity, setQuantity] = useState(item.quantity);
   const [IsChecked, setIsChecked] = useState(false);
   const [ProductDetail, setProductDetail] = useState();
@@ -49,22 +48,21 @@ const Cartdesign = ({ item }) => {
     }
   };
 
-  const handleCheckboxChange = () => {
-    setIsChecked(true);
+  // console.log("this is item", item);
+  const handleCheckboxChange = (orderinfo) => {
+    console.log("this is pk", orderinfo);
+    setIsChecked(!IsChecked);
     alert("btn clicked");
-    dispatch({ type: "setOrderDetail", payload: item });
+    dispatch({ type: "setOrderDetail", payload: orderinfo });
   };
 
   const getProduct = async () => {
     const { data, status } = await axios.get(getProductApi);
     if (status == 200) {
-      console.log("this is getproduct", data);
       setProductDetail(data.message[0]);
-      console.log("this is state", state);
     }
   };
   const deleteProduct = async (deletingitem) => {
-    console.log("this is deleting item ko id", deletingitem._id);
     try {
       const { data, status } = await axios.delete(
         `${deleteProductApi}/${deletingitem._id}`
@@ -90,7 +88,7 @@ const Cartdesign = ({ item }) => {
           type="checkbox"
           checked={IsChecked}
           onChange={() => {
-            handleCheckboxChange();
+            handleCheckboxChange(item?.product);
           }}
           className={styles.checkBox}
         />
@@ -119,7 +117,7 @@ const Cartdesign = ({ item }) => {
         <button
           className={styles.increaseBtn}
           onClick={() => {
-            IncreaseQuantity(item._id);
+            IncreaseQuantity(item);
           }}
         >
           +
@@ -134,9 +132,9 @@ const Cartdesign = ({ item }) => {
           -
         </button>
       </div>
-      <div className={styles.iconWrapper}>
+      {/* <div className={styles.iconWrapper}>
         <MdAddShoppingCart className={styles.cartIcon} />
-      </div>
+      </div> */}
     </div>
   );
 };
