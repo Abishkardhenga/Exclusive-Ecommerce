@@ -25,7 +25,12 @@ const GetOrderHistory = async () => {
   }
 };
 const DeleteOrderHistory = async () => {
+  const { id } = req.params;
+  const data = await order.findByIdAndDelete(id);
   try {
+    res
+      .status(200)
+      .json({ message: "successfully deleted it ", data, success: true });
   } catch (err) {
     res.status(403).json({ message: err.message, success: false });
   }
