@@ -50,7 +50,7 @@ const Cartdesign = ({ item }) => {
 
   // console.log("this is item", item);
   const handleCheckboxChange = (orderinfo) => {
-    console.log("this is pk", orderinfo);
+    console.log("k xa ta checkbox vitra", orderinfo);
     setIsChecked(!IsChecked);
     alert("btn clicked");
     dispatch({ type: "setOrderDetail", payload: orderinfo });

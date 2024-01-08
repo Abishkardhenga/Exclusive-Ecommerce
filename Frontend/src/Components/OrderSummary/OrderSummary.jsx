@@ -7,10 +7,36 @@ import axios from "axios";
 
 const OrderSummary = () => {
   const { dispatch, state } = useContext(UserInfo);
-  const [productInfo, setProductInfo] = useState(0); // Default value set to 0
-  const [totalAmount, setTotalAmount] = useState(0); // Default value set to 0
+  const [ProductAmount, setProductAmount] = useState(0); // Default value set to 0
+  const [TotalAmount, setTotalAmount] = useState(0); // Default value set to 0
   const [open, setOpen] = useState(false);
 
+  let id = state.OrderDetail;
+  console.log("thi is id", id);
+  let api = id ? `http://localhost:8000/getproduct?_id=${id}` : null;
+
+  useEffect(() => {
+    if (id) {
+      OrderSummaryProduct();
+    }
+    sum();
+  }, [state.OrderDetail]);
+
+  const OrderSummaryProduct = async () => {
+    try {
+      const { data, status } = await axios.get(api);
+      console.log("this is ordersummary data", data, status);
+      setProductAmount(data?.message[0]?.price);
+    } catch (err) {
+      console.log("this is err", err.message);
+    }
+  };
+
+  const sum = () => {
+    let item = ProductAmount + 100;
+    console.log("this is sum totat", item);
+    setTotalAmount(item);
+  };
   const handleClose = () => {
     setOpen(false);
   };
@@ -18,33 +44,6 @@ const OrderSummary = () => {
   const handleOpen = () => {
     setOpen(true);
   };
-
-  useEffect(() => {
-    fetchGetApi();
-  }, [state.OrderDetail]); // Include state.OrderDetail in the dependency array
-
-  const totalSum = () => {
-    const total = productInfo + 100;
-    setTotalAmount(total);
-  };
-
-  const fetchGetApi = async () => {
-    try {
-      const { data, status } = await axios.get(
-        `http://localhost:8000/getproduct?_id=${state.OrderDetail}`
-      );
-      if (status === 200) {
-        const item = data.message[0].price;
-        setProductInfo(item);
-      }
-    } catch (err) {
-      console.log("Error fetching product info", err);
-    }
-  };
-
-  useEffect(() => {
-    totalSum();
-  }, [productInfo]); // Include productInfo in the dependency array
 
   return (
     <div className={styles.orderSummaryContainer}>
@@ -59,7 +58,7 @@ const OrderSummary = () => {
             </div>
             <div className={styles.itemDetail}>
               <p>Item Total</p>
-              <p>Rs {productInfo}</p>
+              <p>Rs {ProductAmount}</p>
             </div>
             <div className={styles.itemDetail}>
               <p>Delivery Fee</p>
@@ -71,18 +70,15 @@ const OrderSummary = () => {
             </div>
             <div className={styles.itemDetail}>
               <p>Total Payment</p>
-              <p>{totalAmount}</p>
+              <p>{TotalAmount}</p>
             </div>
           </div>
         </div>
-
         <button onClick={handleOpen} className={styles.placeOrderButton}>
           Place Order
         </button>
         <Modal isOpen={open} onClose={handleClose}>
-          <>
-            <ShippingForm />
-          </>
+          <ShippingForm />
         </Modal>
       </div>
     </div>
