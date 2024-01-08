@@ -90,7 +90,7 @@ const Footer = () => {
         <FaRegCopyright className={styles.copyrightIcon} />
 
         <p className={styles.copyrightDisclaimer}>
-          Copyright 2022@ by Aabiskar Dhenga
+          Copyright 2024@ by Aabiskar Dhenga
         </p>
       </div>
     </div>

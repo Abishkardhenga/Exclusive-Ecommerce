@@ -2,8 +2,8 @@
     width: 200px;
     height: 200px;
     padding:0.25rem 0.5rem;
-background-color:rgba(128, 128, 128, 0.496);
-display: flex;
+background-color:rgb(228 205 219 / 50%);
+box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;display: flex;
 flex-direction: column;
 gap: 0.35rem;
 
