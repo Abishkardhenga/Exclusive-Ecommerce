@@ -18,8 +18,8 @@ const OrderSummary = () => {
   useEffect(() => {
     if (id) {
       OrderSummaryProduct();
+      sum();
     }
-    sum();
   }, [state.OrderDetail]);
 
   const OrderSummaryProduct = async () => {

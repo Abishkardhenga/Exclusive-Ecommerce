@@ -49,7 +49,8 @@ const Navbar = () => {
             {/* <p className={styles.cartnumber}>{state.cartCollection.length}</p> */}
           </div>
         </Link>
-        {state.userdata ? <Dropdown /> : "no hey"}
+        {state.userdata ? <Dropdown /> : " "}
+        {/* nav bar fixed  */}
       </div>
     </div>
   );
