@@ -2,15 +2,27 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "./CartDesign.module.css";
 import { UserInfo } from "../../utilis/UseContext/UseContext";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import ShippingForm from "../../Pages/Shippingform/Shippingform";
+
 import { MdAddShoppingCart } from "react-icons/md";
 import axios from "axios";
+import Modal from "../../Modal/Modal";
+
 import { useAsyncError } from "react-router-dom";
 
 const Cartdesign = ({ item }) => {
   const [quantity, setQuantity] = useState(item.quantity);
-  const [IsChecked, setIsChecked] = useState(false);
   const [ProductDetail, setProductDetail] = useState();
+  const [open, setOpen] = useState(false);
+
   let { dispatch, state } = useContext(UserInfo);
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
   let id = item.product;
   useEffect(() => {
     // Update Quantity state when item.quantity changes
@@ -49,12 +61,6 @@ const Cartdesign = ({ item }) => {
   };
 
   // console.log("this is item", item);
-  const handleCheckboxChange = (orderinfo) => {
-    console.log("k xa ta checkbox vitra", orderinfo);
-    setIsChecked(!IsChecked);
-    alert("btn clicked");
-    dispatch({ type: "setOrderDetail", payload: orderinfo });
-  };
 
   const getProduct = async () => {
     const { data, status } = await axios.get(getProductApi);
@@ -84,14 +90,6 @@ const Cartdesign = ({ item }) => {
   return (
     <div className={styles.cartContainer}>
       <div className={styles.Aboutproduct}>
-        <input
-          type="checkbox"
-          checked={IsChecked}
-          onChange={() => {
-            handleCheckboxChange(item?.product);
-          }}
-          className={styles.checkBox}
-        />
         <div className={styles.imgWrapper}>
           <img
             src={ProductDetail?.image}
@@ -113,6 +111,26 @@ const Cartdesign = ({ item }) => {
           <p>Rs{ProductDetail?.price}</p>
         </div>
       </div>
+
+      {/* <div className={styles.btnWrapper}>
+        <button
+          className={styles.increaseBtn}
+          onClick={() => {
+            IncreaseQuantity(item);
+          }}
+        >
+          +
+        </button>
+        <p>{quantity}</p>
+        <button
+          className={styles.decreaseBtn}
+          onClick={() => {
+            DecreaseQuantity(item._id);
+          }}
+        >
+          -
+        </button>
+      </div> */}
       <div className={styles.btnWrapper}>
         <button
           className={styles.increaseBtn}
@@ -132,9 +150,12 @@ const Cartdesign = ({ item }) => {
           -
         </button>
       </div>
-      {/* <div className={styles.iconWrapper}>
-        <MdAddShoppingCart className={styles.cartIcon} />
-      </div> */}
+      <div>
+        <button onClick={handleOpen}>Checkout</button>
+        <Modal isOpen={open} onClose={handleClose}>
+          <ShippingForm />
+        </Modal>
+      </div>
     </div>
   );
 };

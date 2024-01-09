@@ -43,7 +43,7 @@ const Cart = () => {
             return <Cartdesign item={item} />;
           })}
         </div>
-        <OrderSummary />
+        {/* <OrderSummary /> */}
       </div>
 
       <Footer />
