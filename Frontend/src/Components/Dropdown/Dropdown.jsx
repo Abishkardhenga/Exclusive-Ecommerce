@@ -9,11 +9,13 @@ const Dropdown = () => {
     <div className={styles.dropdownContainer}>
       <button onClick={() => setIsOpen(!isOpen)}>profile</button>
       {isOpen && (
-        <div>
+        <div className={styles.list}>
           <Link className={styles.links} to="/seller">
             Be seller
           </Link>
-          <p>My Order</p>
+          <Link className={styles.links} to="/order">
+            My Order
+          </Link>
         </div>
       )}
     </div>

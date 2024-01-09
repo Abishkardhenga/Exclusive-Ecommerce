@@ -18,6 +18,7 @@ import Addproduct from "./Pages/AddProduct/Addproduct";
 import Mystore from "./Pages/MyStore/Mystore";
 import ProtectedRoutes from "./utilis/Protectedroutes/ProtectedRoutes";
 import ShippingForm from "./Pages/Shippingform/Shippingform";
+import Myorder from "./Pages/Myorder/Myorder";
 
 const App = () => {
   return (
@@ -45,6 +46,7 @@ const App = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/shipping" element={<ShippingForm />} />
       <Route path="/about" element={<Aboutus />} />
+      <Route path="/order" element={<Myorder />} />
     </Routes>
   );
 };

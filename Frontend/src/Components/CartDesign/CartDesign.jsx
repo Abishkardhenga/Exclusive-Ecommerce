@@ -151,7 +151,7 @@ const Cartdesign = ({ item }) => {
         </button>
       </div>
       <div>
-        <button onClick={handleOpen}>Checkout</button>
+        <button className={styles.checkoutBtn} onClick={handleOpen}>Checkout</button>
         <Modal isOpen={open} onClose={handleClose}>
           <ShippingForm />
         </Modal>

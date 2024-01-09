@@ -1,0 +1,9 @@
+.orderContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.heroContainer{
+    width: 100%;
+    height: 60vh;
+}

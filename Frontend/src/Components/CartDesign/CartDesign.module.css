@@ -40,6 +40,9 @@ border-bottom: 0.25px solid grey;
     object-fit: cover;
 }
 
+.checkoutBtn{
+    background-color: red;
+}
 .deleteIcon{
     cursor: pointer;
 }

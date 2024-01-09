@@ -1,3 +1,8 @@
 .links{
     text-decoration: none;
+    color: black;
+}
+.list{
+    display: flex;
+    flex-direction: column;
 }
