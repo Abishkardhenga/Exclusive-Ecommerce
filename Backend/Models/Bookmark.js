@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 
 const bookmark = new mongoose.Schema(
   {
-    product: {
+    productId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "product",
       required: true,
     },
 
-    buyer: {
+    buyerId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "owner",
       required: true,
@@ -17,4 +17,4 @@ const bookmark = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("bookmarkSchema", bookmark);
+module.exports = mongoose.model("Bookmark", bookmark);

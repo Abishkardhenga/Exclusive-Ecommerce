@@ -3,7 +3,7 @@ import styles from "./Bookmark.module.css";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import { UserInfo } from "../../utilis/UseContext/UseContext";
-import BookmarkCartdesign from "../../Components/BookmarkCartDesign/BookmarkCartdesign";
+import BookmarkCard from "../../Components/BookmarkCartDesign/BookmarkCard";
 
 const Bookmark = () => {
   let [cartCollection, setCartCollection] = useState([]);
@@ -14,9 +14,9 @@ const Bookmark = () => {
   return (
     <div className={styles.cartContainer}>
       <Navbar />
-      <div>
+      <div className={styles.bookmarkHeroSection}>
         {cartCollection.map((item) => {
-          return <BookmarkCartdesign item={item} />;
+          return <BookmarkCard />;
         })}
       </div>
 
