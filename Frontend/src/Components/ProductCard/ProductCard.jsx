@@ -10,8 +10,6 @@ const ProductCard = ({ item }) => {
   let cartapi = "http://localhost:8000/createCart";
   const { state, dispatch } = useContext(UserInfo);
   let bookmarkapi = "http://localhost:8000/createBookmark";
-  console.log("this is ite,", item);
-  console.log("this is state", state);
 
   let handleBookmark = async () => {
     try {

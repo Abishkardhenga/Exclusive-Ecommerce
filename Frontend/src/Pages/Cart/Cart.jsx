@@ -25,7 +25,6 @@ const Cart = () => {
   const GetCart = async () => {
     try {
       const { data, status } = await axios.get(`${api}${buyer}`);
-      console.log("this is data", data);
       if (status == 200) {
         setCartCollection(data.message);
       }

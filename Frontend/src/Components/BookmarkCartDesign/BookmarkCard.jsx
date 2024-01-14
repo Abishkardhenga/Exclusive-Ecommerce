@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./BookmarkCard.module.css";
 import { IoBookmarkOutline } from "react-icons/io5";
@@ -7,21 +7,40 @@ import { Link } from "react-router-dom";
 import { UserInfo } from "../../utilis/UseContext/UseContext";
 
 const BookmarkCard = ({ item }) => {
+  let [ProductInfo, setProductInfo] = useState("");
   let cartapi = "http://localhost:8000/createCart";
   const { state, dispatch } = useContext(UserInfo);
+  let id = item?.productId;
+  let getProductApi = `http://localhost:8000/getproduct?_id=${id}`;
 
-  let handleCart = async () => {
+  let handleCart = async (pk) => {
     try {
-      const data = await axios.post(cartapi, {
-        product: item?._id,
+      const { data, status } = await axios.post(cartapi, {
+        product: pk?._id,
         buyer: state?.userdata?._id,
       });
+      if (status == 200) {
+        alert("succesfully added");
+      }
     } catch (err) {
       console.log("this is err", err.message);
     }
   };
+  useEffect(() => {
+    ProductDetail();
+  }, []);
 
-  // console.log("this is state", state);
+  let ProductDetail = async () => {
+    try {
+      const { data, status } = await axios.get(getProductApi);
+      if (status == 200) {
+        let productData = data.message[0];
+        setProductInfo(productData);
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   return (
     <div className={styles.productContainer}>
@@ -31,17 +50,24 @@ const BookmarkCard = ({ item }) => {
         className={styles.imgWrapper}
       >
         <img
-          src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&w=600"
+          src={ProductInfo?.image}
           className={styles.productImg}
           alt="watch img"
         />
       </Link>
       <div>
-        <p className={styles.name}>asfda</p>
-        <p className={styles.price}>Rs234</p>
+        <p className={styles.name}>{ProductInfo?.name}</p>
+        <p className={styles.price}>{ProductInfo?.price}</p>
       </div>
       <div className={styles.iconsWrapper}>
-        <button className={styles.cartBtn}>Add To Cart</button>
+        <button
+          onClick={() => {
+            handleCart(item);
+          }}
+          className={styles.cartBtn}
+        >
+          Add To Cart
+        </button>
       </div>
     </div>
   );
