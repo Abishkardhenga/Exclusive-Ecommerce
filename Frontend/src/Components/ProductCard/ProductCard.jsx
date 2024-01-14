@@ -9,10 +9,22 @@ import { UserInfo } from "../../utilis/UseContext/UseContext";
 const ProductCard = ({ item }) => {
   let cartapi = "http://localhost:8000/createCart";
   const { state, dispatch } = useContext(UserInfo);
+  let bookmarkapi = "http://localhost:8000/createBookmark";
+  console.log("this is ite,", item);
+  console.log("this is state", state);
 
-  let handleBookmark = () => {
-    alert("bookmark dabaiyo hai ");
-    dispatch({ type: "setBookmark", payload: item });
+  let handleBookmark = async () => {
+    try {
+      const { data, status } = await axios.post(bookmarkapi, {
+        productId: item?._id,
+        buyerId: state?.userdata?._id,
+      });
+      if (status == 200) {
+        alert("successfully  Bookmarked ");
+      }
+    } catch (err) {
+      console.log("err.message");
+    }
   };
   let handleCart = async () => {
     try {
