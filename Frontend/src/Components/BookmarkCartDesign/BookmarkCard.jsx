@@ -4,6 +4,8 @@ import styles from "./BookmarkCard.module.css";
 import { IoBookmarkOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { MdDeleteForever } from "react-icons/md";
+
 import { UserInfo } from "../../utilis/UseContext/UseContext";
 
 const BookmarkCard = ({ item }) => {
@@ -57,7 +59,7 @@ const BookmarkCard = ({ item }) => {
       </Link>
       <div>
         <p className={styles.name}>{ProductInfo?.name}</p>
-        <p className={styles.price}>{ProductInfo?.price}</p>
+        <p className={styles.price}>Rs {ProductInfo?.price}</p>
       </div>
       <div className={styles.iconsWrapper}>
         <button
@@ -68,6 +70,7 @@ const BookmarkCard = ({ item }) => {
         >
           Add To Cart
         </button>
+        <MdDeleteForever className={styles.deleteIcons} />
       </div>
     </div>
   );

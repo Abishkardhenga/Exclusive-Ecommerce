@@ -1,6 +1,6 @@
 .productContainer{
     width: 200px;
-    height: 200px;
+    height: 240px;
     padding:0.25rem 0.5rem;
 background-color:rgb(228 205 219 / 50%);
 box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;display: flex;
@@ -29,10 +29,10 @@ gap: 0.35rem;
 }
 
 .name{
-    height: 40px;
+    height: 30px;
 
     letter-spacing: 1px;
-    font-size: 12px;
+    font-size: 13px;
 }
 .price{
     color:rgb(219,68,68);
@@ -41,3 +41,15 @@ gap: 0.35rem;
 .cartBtn{
     background-color: red;
 }
+
+.deleteIcons{
+    height: 24px;
+    width: 24px;
+position: relative;
+bottom: 178px;
+cursor: pointer;
+/* top: 0px; */
+}
+
+
+
