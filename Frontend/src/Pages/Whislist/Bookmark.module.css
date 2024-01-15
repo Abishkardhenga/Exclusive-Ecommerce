@@ -7,7 +7,11 @@
 .bookmarkHeroSection{
     display: flex;
     flex-wrap: wrap;
+    gap: 2rem;
     width: 100%;
     min-height: 60vh;
     max-height: auto;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+    padding-top:1rem ;
 }

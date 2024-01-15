@@ -23,6 +23,7 @@ const Bookmark = () => {
 
   useEffect(() => {
     fetchApi();
+    dispatch({ type: "setGetBookmarkFn", payload: fetchApi });
   }, []);
 
   return (

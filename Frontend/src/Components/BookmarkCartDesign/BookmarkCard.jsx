@@ -15,6 +15,7 @@ const BookmarkCard = ({ item }) => {
   const { state, dispatch } = useContext(UserInfo);
   let id = item?.productId;
   let getProductApi = `http://localhost:8000/getproduct?_id=${id}`;
+  console.log("this is state", state);
 
   let handleCart = async (pk) => {
     try {
@@ -39,6 +40,7 @@ const BookmarkCard = ({ item }) => {
         `${deletingApi}/${deletingItem?._id}`
       );
       if (status == 200) {
+        state.getBookmarkFn();
         alert("successfully deleted hai ta ");
       }
     } catch (err) {
