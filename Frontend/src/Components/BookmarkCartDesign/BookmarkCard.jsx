@@ -10,6 +10,7 @@ import { UserInfo } from "../../utilis/UseContext/UseContext";
 
 const BookmarkCard = ({ item }) => {
   let [ProductInfo, setProductInfo] = useState("");
+  let deletingApi = " http://localhost:8000/deleteBookmark";
   let cartapi = "http://localhost:8000/createCart";
   const { state, dispatch } = useContext(UserInfo);
   let id = item?.productId;
@@ -31,6 +32,19 @@ const BookmarkCard = ({ item }) => {
   useEffect(() => {
     ProductDetail();
   }, []);
+
+  let handleDelete = async (deletingItem) => {
+    try {
+      const { data, status } = await axios.delete(
+        `${deletingApi}/${deletingItem?._id}`
+      );
+      if (status == 200) {
+        alert("successfully deleted hai ta ");
+      }
+    } catch (err) {
+      console.log("this is err", err.message);
+    }
+  };
 
   let ProductDetail = async () => {
     try {
@@ -70,7 +84,12 @@ const BookmarkCard = ({ item }) => {
         >
           Add To Cart
         </button>
-        <MdDeleteForever className={styles.deleteIcons} />
+        <MdDeleteForever
+          onClick={() => {
+            handleDelete(item);
+          }}
+          className={styles.deleteIcons}
+        />
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ let user = {
   // cartCollection: [],
   getProductFn: null,
   getCartFn: null,
+  getBookmarkFn: null,
   editMode: false,
   editingData: null,
   OrderDetail: null,
@@ -20,6 +21,8 @@ let reducer = (state, action) => {
       return { ...state, getProductFn: action.payload };
     case "setGetCartFn":
       return { ...state, getCartFn: action.payload };
+    case "setGetBookmarkFn":
+      return { ...state, getBookmarkFn: action.payload };
     case "setEditingData":
       return { ...state, editingData: action.payload };
     case "setOrderDetail":
