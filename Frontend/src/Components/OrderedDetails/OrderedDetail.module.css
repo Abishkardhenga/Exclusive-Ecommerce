@@ -1,0 +1,39 @@
+.orderdetailContainer{
+display: flex;
+flex-direction: column;
+width: 70%;
+height: 230px;
+background-color: rgba(128, 128, 128, 0.371);
+
+}
+
+.upper_wrapper{
+display: flex;
+justify-content: space-between;
+padding: 2rem;
+}
+
+.about_product{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+.lower_wrapper{
+    display: flex;
+    padding:0rem 2rem;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.img_wrapper{
+height: 100px;
+width: 100px;
+}
+
+.product_img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
