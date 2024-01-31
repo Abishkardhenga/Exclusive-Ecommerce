@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./OrderedDetail.module.css";
 
-const OrderedDetail = () => {
+const OrderedDetail = ({ item }) => {
+  console.log("this is iem", item);
   return (
     <div className={styles.orderdetailContainer}>
       {/* 1 st box ? */}
@@ -17,16 +18,15 @@ const OrderedDetail = () => {
       {/* 2nd box  */}
       <div className={styles.lower_wrapper}>
         <div className={styles.about_product}>
-
-        <div className={styles.img_wrapper}>
-          <img
-            className={styles.product_img}
-            src="https://images.pexels.com/photos/380954/pexels-photo-380954.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt="product Img "
+          <div className={styles.img_wrapper}>
+            <img
+              className={styles.product_img}
+              src="https://images.pexels.com/photos/380954/pexels-photo-380954.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="product Img "
             />
+          </div>
+          <p>Ice cream</p>
         </div>
-        <p>Ice cream</p>
-            </div>
         <p className={styles.qty}>Qty : 1</p>
         <div>Cancelled </div>
       </div>

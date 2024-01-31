@@ -13,17 +13,23 @@ const Loginbox = () => {
   let { state, dispatch } = useContext(UserInfo);
   let handleLogin = async () => {
     try {
-      let { data, status } = await axios.post(api, {
-        email,
-        password,
-      });
+      let { data, status } = await axios.post(
+        api,
+        {
+          email,
+          password,
+        },
+        {
+          method: "POST",
+          withCredentials: true,
+        }
+      );
       // console.log("this is status: ", status);
       if (status === 200) {
         alert("Login successfully ");
         setEmail("");
         setPassword("");
         // console.log("this is data", data);
-        dispatch({ type: "setUserdata", payload: data.data });
         navigate("/");
       }
       console.log("this is data", data);

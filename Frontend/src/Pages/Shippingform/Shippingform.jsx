@@ -5,8 +5,6 @@ import { UserInfo } from "../../utilis/UseContext/UseContext";
 
 const ShippingForm = () => {
   const { dispatch, state } = useContext(UserInfo);
-  console.log("this is state bata user id ", state?.userdata?._id);
-  console.log("this is state bata user id ", state?.userdata);
 
   const [shippingDetails, setShippingDetails] = useState({
     fullname: "",

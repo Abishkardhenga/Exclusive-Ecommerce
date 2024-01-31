@@ -4,10 +4,9 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 const db = require("./utilis/db");
-app.use(express.json());
+const cookieParser = require("cookie-parser");
 
 db();
-
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -15,6 +14,8 @@ app.use(
     credentials: true,
   })
 );
+app.use(cookieParser());
+app.use(express.json());
 app.use(require("./Routes/AuthRoutes"));
 app.use(require("./Routes/ProductRoutes"));
 app.use(require("./Routes/Shipping"));

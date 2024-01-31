@@ -4,8 +4,11 @@ import Footer from "../../Components/Footer/Footer";
 import sideimg from "../../../public/img/sideimg.png";
 import styles from "./Login.module.css";
 import Loginbox from "../../Components/LoginBox/Loginbox";
+import { useCookies } from "react-cookie";
 
 const Login = () => {
+  let [cookies, setCookie] = useCookies();
+  console.log("cookie ", cookies);
   return (
     <div className={styles.loginContainer}>
       <Navbar />
