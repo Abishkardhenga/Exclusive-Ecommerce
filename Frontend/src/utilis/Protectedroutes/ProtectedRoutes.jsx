@@ -7,7 +7,7 @@ import axios from "axios";
 const ProtectedRoutes = () => {
   const { state, dispatch } = useContext(UserInfo);
   const [cookies] = useCookies();
-  const [loading, setLoading] = useState(false); // Set to true initially
+  const [loading, setLoading] = useState(false);
   const userverifyapi = "http://localhost:8000/verify-user";
 
   useEffect(() => {
@@ -25,19 +25,22 @@ const ProtectedRoutes = () => {
             withCredentials: true,
           }
         );
+        console.log("this is response", response);
 
         if (response.status === 200) {
-          setLoading(true);
-
-          dispatch({ type: "setUserdata", payload: response });
+          dispatch({ type: "setUserdata", payload: response.data });
+        } else {
+          console.log("Error verifying user. Status:", response.status);
         }
       } catch (error) {
         console.log("Error verifying user:", error.message);
+      } finally {
+        setLoading(true);
       }
     };
 
     fetchData();
-  }, [cookies]);
+  }, [cookies, state, dispatch]);
 
   if (!loading) {
     return <div>Loading...</div>;
